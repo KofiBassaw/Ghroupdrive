@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/cvBuy"
+    android:minWidth="500dp"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="INVITE CODE"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="15dp"
+    android:textSize="18sp"
+    android:id="@+id/tvInviteCode"
+    android:textColor="#454444"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/invitecode"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textSize="14sp"
+        android:id="@+id/tvMessage"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorPrimary"/>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:id="@+id/tvPhone"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorPrimary"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="40dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:inputType="text"
+            android:hint="enter invite code"
+            android:id="@+id/etInviteCode"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="40dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="-7dp"
+            android:id="@+id/vLine"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpContinue"
+        android:layout_marginTop="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/rlContinue">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"
+                android:text="CONTINUE"
+                android:id="@+id/tvContinue"
+                android:textColor="@color/colorPrimary"/>
+        </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+</LinearLayout>

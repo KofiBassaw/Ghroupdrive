@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GHS 25.50"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Account Balance"
+        android:textSize="16sp"
+        android:textColor="#212222"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-5dp"/>
+
+
+    <com.andexert.library.RippleView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpAdd"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp">
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:id="@+id/rlAdd"
+            android:paddingLeft="2dp"
+            android:background="@drawable/walletgreen">
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/wallet_add"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Load Wallet"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#3cb878"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+
+
+
+
+    <com.andexert.library.RippleView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+
+        android:id="@+id/rpWithdraw"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="60dp">
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:id="@+id/rlWithdraw"
+            android:paddingLeft="2dp"
+            android:background="@drawable/walletblue">
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/wallet_withdraw"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Withdraw"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#27bdf2"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#e5eaee">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money Back Gurantee"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can always withdraw money from your wallet"
+            android:textSize="15sp"
+            android:textColor="#212222"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+</LinearLayout>

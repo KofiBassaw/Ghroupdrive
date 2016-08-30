@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:background="@drawable/searchbackground">
+
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/ivProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drake Surname "
+            android:layout_marginTop="15dp"
+            android:id="@+id/tvName"
+            android:layout_marginLeft="10dp"
+            android:textColor="#2f2f30"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seat 1"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tvSeatNo"
+            android:layout_marginLeft="10dp"
+            android:textColor="#5c5c5d"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/facebook"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You Share 15 mutual friends"
+                android:id="@+id/tvShare"
+                android:textColor="#545555"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:src="@drawable/sampimage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:elevation="8dp"
+        app:border_width="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        app:border_color="#FFF"
+
+        />
+
+
+</RelativeLayout>

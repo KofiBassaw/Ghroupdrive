@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5eaee"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rlTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/llUploadContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#27bdf2">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_height="90dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="#ffffff"
+                                android:padding="1dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/sample_image1"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="#ffffff"
+                                android:padding="1dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/sample_image2"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="#ffffff"
+                                android:padding="1dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/sample_image3"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="#ffffff"
+                                android:padding="1dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/sample_image4"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_text"
+                        android:gravity="center_horizontal"
+                        android:layout_margin="10dp"
+
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"/>
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+
+                        android:src="@drawable/cameraicon_white"/>
+
+
+                    <com.andexert.library.RippleView
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:rv_color="@color/colorPrimary"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        card_view:rv_centered="true"
+                        card_view:rv_rippleDuration="200"
+                        android:id="@+id/rpGallery"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:id="@+id/rlGallery"
+                            android:paddingLeft="40dp"
+                            android:paddingRight="40dp"
+                            android:background="@drawable/proceedoval">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Upload Photos from Gallery"
+                                android:textSize="14sp"
+                                android:textColor="@color/colorPrimary"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerInParent="true"/>
+
+                            <ProgressBar
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:visibility="gone"
+                                android:id="@+id/rlPbarGallery"/>
+
+
+
+
+
+                        </RelativeLayout>
+
+                    </com.andexert.library.RippleView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#e5eaee"
+                        android:orientation="vertical">
+
+                        <com.andexert.library.RippleView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:rv_color="@color/colorPrimary"
+                            card_view:rv_centered="true"
+                            card_view:rv_rippleDuration="200"
+                            android:id="@+id/rpSelfie"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_marginBottom="80dp">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:id="@+id/rlSelfie"
+                                android:paddingLeft="40dp"
+                                android:paddingRight="40dp"
+                                android:background="@drawable/selfieoval">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_centerInParent="true">
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:scaleType="fitXY"
+                                        android:adjustViewBounds="true"
+
+                                        android:src="@drawable/cameraicon_grey"/>
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Take a selfie"
+                                        android:textSize="14sp"
+                                        android:textColor="#717171"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_centerInParent="true"/>
+
+
+                                </LinearLayout>
+
+
+                            </RelativeLayout>
+
+                        </com.andexert.library.RippleView>
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    android:id="@+id/llPagerContainer">
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vpPager2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="55dp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/llImages">
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:src="@drawable/myovalwhite"
+                            android:layout_margin="5dp"
+                            android:id="@+id/ivOne"/>
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:src="@drawable/myovalgrey"
+                            android:layout_margin="5dp"
+                            android:id="@+id/ivTwo"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_below="@+id/rlTop"
+                android:id="@+id/llBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:id="@+id/tvName"
+                 android:text="Robert Wilson"
+                 android:textSize="20sp"
+                 android:layout_marginTop="65dp"
+                 android:textColor="#222222"/>
+
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/spUniversities"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"></Spinner>
+
+
+
+
+                <com.andexert.library.RippleView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:rv_color="@color/colorPrimary"
+                    card_view:rv_centered="true"
+                    card_view:rv_rippleDuration="200"
+
+                    android:id="@+id/rpInvite"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:id="@+id/rlInvite"
+                        android:paddingLeft="2dp"
+
+                        android:background="@drawable/proceedoval">
+
+                        <LinearLayout
+                            android:layout_marginRight="35dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/inviticon"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Send Invite"
+                                    android:textSize="18sp"
+                                    android:textColor="#222222"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3 Remaining"
+                                    android:textSize="14sp"
+                                    android:id="@+id/tvInviteRem"
+                                    android:textColor="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+
+
+                    </RelativeLayout>
+
+                </com.andexert.library.RippleView>
+
+
+
+            </LinearLayout>
+
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                android:src="@drawable/uploadpicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:elevation="8dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/llBottom"
+                android:layout_marginBottom="-50dp"
+                android:layout_gravity="center_horizontal"
+                app:border_width="0dp"
+                app:border_color="#FFF"
+                />
+
+
+
+            <ProgressBar
+                android:layout_marginBottom="-20dp"
+                android:layout_above="@+id/llBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/pbBarImage"/>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/llBottom"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rides"
+                    android:textSize="14sp"
+                    android:textColor="#717171"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Points"
+                    android:textSize="14sp"
+                    android:textColor="#717171"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:text="0"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Badges"
+                    android:textSize="14sp"
+                    android:textColor="#717171"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="20dp">
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@drawable/cameraicon_grey"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Pictures"
+            android:textSize="16sp"
+            android:textColor="#5c5c5c"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"/>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/onecircle">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="your Profile is"
+                    android:textSize="14sp"
+                    android:textColor="#525252"
+                    android:layout_marginTop="5dp"/>
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="25%"
+                    android:textSize="30sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Complete"
+                    android:textSize="16sp"
+                    android:textColor="#525252"
+                    android:layout_marginTop="5dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginTop="30dp">
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/rpProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Add Your Profile Image "
+            android:textSize="14sp"
+            android:textColor="#525252"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=" (+20%)"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+
+
+    <com.andexert.library.RippleView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rpProfile">
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:id="@+id/rProfile"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="2dp"
+            android:background="@drawable/proceedoval">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADD"
+                        android:layout_centerInParent="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"/>
+
+
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+
+
+
+</RelativeLayout>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginTop="30dp">
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/rpImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Add Image of your self "
+            android:textSize="14sp"
+            android:textColor="#525252"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=" (+10% each)"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+
+
+    <com.andexert.library.RippleView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rpImage">
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:id="@+id/rlImage"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="2dp"
+            android:background="@drawable/proceedoval">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADD"
+                        android:layout_centerInParent="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"/>
+
+
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_toLeftOf="@+id/rpUni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Select University and Hall "
+                    android:textSize="14sp"
+                    android:textColor="#525252"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text=" (+10%)"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorPrimary"/>
+
+            </LinearLayout>
+
+
+
+            <com.andexert.library.RippleView
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:rv_color="@color/colorPrimary"
+                card_view:rv_centered="true"
+                card_view:rv_rippleDuration="200"
+                android:layout_alignParentRight="true"
+                android:id="@+id/rpUni">
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/rlUni"
+                    android:layout_marginRight="20dp"
+                    android:paddingLeft="2dp"
+                    android:background="@drawable/proceedoval">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADD"
+                        android:layout_centerInParent="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"/>
+
+
+                </RelativeLayout>
+
+            </com.andexert.library.RippleView>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+        </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

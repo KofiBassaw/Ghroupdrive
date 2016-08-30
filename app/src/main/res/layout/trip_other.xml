@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbdfe8"
+    android:paddingRight="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/arrow_down"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MORE DETAILS"
+                android:textColor="#787777"
+                android:id="@+id/tvTitle"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/searchbackground"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#777777"
+                android:layout_centerInParent="true"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="SETTING OFF IN 2HRS 30MINS"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#bebdbd"/>
+
+
+
+
+
+
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ROUTE"
+                android:textColor="#787777"
+                android:textSize="14sp"/>
+
+
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/onecircle"
+                        android:id="@+id/ivTop"/>
+
+
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_toRightOf="@+id/ivTop"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/locationpointer"/>
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_toRightOf="@+id/ivBottom"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/locationpointer"/>
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-25dp"
+                        android:layout_marginRight="-20dp"
+                        android:src="@drawable/rotate_dashes"
+                        android:layout_below="@+id/ivTop"
+                        android:layout_above="@+id/ivBottom"/>
+
+
+                    <ImageView
+                        android:id="@+id/ivBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/onecircle"/>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp">
+
+                    <TextView
+                        android:id="@+id/tvStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Commonwealth Hall"
+                        android:textColor="#787777"
+                        android:textSize="13sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Akuaffo Hall"
+                            android:id="@+id/tvPoint1"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:id="@+id/tvPoint2"
+                            android:text="International Student Hostel"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvEndPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Elizabeth Sey memorial Hall"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="#787777"
+                        android:textSize="13sp"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#bebdbd"
+                android:layout_marginTop="20dp"/>
+
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have selected to be picked up at"
+            android:textColor="#787777"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Akuaffo Hall"
+            android:textStyle="bold"
+            android:textColor="#373737"
+            android:textSize="14sp"/>
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your account will be build"
+            android:textColor="#787777"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GHS 2.00"
+            android:textStyle="bold"
+            android:id="@+id/tvPrice"
+            android:textColor="#373737"
+            android:textSize="14sp"/>
+
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have selected"
+            android:textColor="#787777"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not Set"
+            android:id="@+id/tvSelectedSeat"
+            android:textStyle="bold"
+            android:textColor="#373737"
+            android:textSize="14sp"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#bebdbd"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="80dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Ghroupdrive</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="message_text">Tell us about your consent right here. Just write and I\'ll respond.\nTry it!</string>
+    <string name="ghroup_invite">Invite your friends on campus(@Profile page) to share in the experience! let\'s get there together</string>
+    <string name="ghroupdesc">Here, you can find drivers going your direction and share the space in their vehicle. It won\'t cost you much, just enough to save everyone on cost. </string>
+    <string name="mmString">We currently support MTN and Airtel Money</string>
+    <string name="invitefinish">Your invitation\nhas been succesfully sent</string>
+    <string name="ghroupdrivewelcome">WELCOME TO THE\nGHROUPDRIVE COMMUNITY!</string>
+    <string name="invitemessage">People you invite will recieve a code\nto create an account</string>
+
+    <string name="pickedmessage">Please wait at <b>Commonwealth Hall</b> for pickup\nYou\'ll be notified when the Driver set off at <b>5:30 PM</b></string>
+
+
+
+    <string name="profile_text">Did you know that having more than one image of yourself\nincreases trust? It also makes the drive locate you easily</string>
+
+    <string name="one_title">Commute Comfortably</string>
+    <string name="proccedtext">Please proceed if you want to move your\naccount to a new handset</string>
+    <string name="one_detail">Share rides, drive comfortably and safetly together</string>
+    <string name="registerd">It appears that this number is already\nregistered on Ghroupdrive</string>
+    <string name="invitecode">For security reasons, it is required that you\nare invited by someone you know or someone\nwho works at Ghroupdrive</string>
+
+
+
+
+
+    <array name="titles">
+        <item>Commute Comfortably</item>
+        <item>Save Money</item>
+        <item>Make New Friends</item>
+        <item>Grow Your Network</item>
+    </array>
+
+    <array name="universities">
+        <item>Please select University</item>
+        <item>UG</item>
+        <item>KNUST</item>
+        <item>UCC</item>
+    </array>
+
+
+    <array name="walletarray">
+
+        <item>Buy vouchers at any Ghana Post Office</item>
+        <item>We currently support MTN and Airtel Money</item>
+        <item>Use your regular Bank issued ATM cards</item>
+    </array>
+
+    <array name="details">
+        <item>Share rides, drive comfortably\nand safetly together</item>
+        <item>Share cost on every trip\nsaves you money</item>
+        <item>Meet and make friends with\nwonderful new people everyday</item>
+        <item>Grow your professional contact\nits just easier now</item>
+    </array>
+
+
+
+    <string-array name="dogs_list">
+        <item>Locaion</item>
+        <item>Sample</item>
+        <item>Testing</item>
+        <item>Changing</item>
+        <item>Simple</item>
+        <item>Menu</item>
+        <item>Deep</item>
+        <item>Setling</item>
+        <item>Cheaper</item>
+    </string-array>
+
+
+</resources>

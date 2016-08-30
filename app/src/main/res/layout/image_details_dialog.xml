@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="450dp">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:id="@+id/ivProfile"
+        android:src="@drawable/sampimage"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@+id/ivProfile"
+        android:layout_marginBottom="-25dp"
+        android:clickable="true"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/phone"
+        app:backgroundTint="#04b75b"
+        android:id="@+id/fbCall"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@+id/ivProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-25dp"
+        android:clickable="true"
+        app:backgroundTint="#fdaf2d"
+        android:src="@drawable/profile"
+        android:id="@+id/fbProfile"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@+id/ivProfile"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-25dp"
+        android:layout_marginRight="25dp"
+        android:clickable="true"
+        app:backgroundTint="#6ba0ff"
+        android:src="@drawable/message"
+        android:id="@+id/fbMessage"/>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Evelyn Fosua"
+        android:layout_below="@+id/ivProfile"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#222222"
+        android:layout_marginTop="40dp"/>
+
+
+</RelativeLayout>

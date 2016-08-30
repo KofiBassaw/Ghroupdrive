@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+
+    <com.ghroupdrive.app.MySurfaceView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/vvSplashVideo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#55000000">
+
+    </RelativeLayout>
+
+    <com.ghroupdrive.app.NonSwippablePager
+        android:layout_above="@+id/bottomHolder"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"/>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ghroupdrive"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ivGroup"
+        android:id="@+id/tvTitle"/>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/dlogo"
+        android:id="@+id/ivGroup"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+       />
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp"
+    android:id="@+id/bottomHolder"
+    android:layout_alignParentBottom="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/llImages">
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/myovalwhite"
+            android:layout_margin="5dp"
+            android:id="@+id/ivOne"/>
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/myovalgrey"
+            android:layout_margin="5dp"
+            android:id="@+id/ivTwo"/>
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/myovalgrey"
+            android:layout_margin="5dp"
+            android:id="@+id/ivThree"/>
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/myovalgrey"
+            android:layout_margin="5dp"
+            android:id="@+id/ivFour"/>
+    </LinearLayout>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        card_view:rv_color="@android:color/white"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpFacebook"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/rlFacebook"
+            android:background="@drawable/facebook_button">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="12sp"
+                android:text="Continue with Facebook"
+                android:textColor="@android:color/white"/>
+        </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        card_view:rv_color="@android:color/white"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpLogin"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/rlLogin"
+            android:background="@drawable/signup_button">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="12sp"
+                android:text="Sign up"
+                android:textColor="@android:color/white"/>
+        </RelativeLayout>
+    </com.andexert.library.RippleView>
+
+</LinearLayout>
+
+</RelativeLayout>

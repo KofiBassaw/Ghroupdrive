@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f3f4"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?colorPrimary" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            android:src="@drawable/sampimage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:elevation="8dp"
+            app:border_width="0dp"
+            app:border_color="#FFF"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivProfile"
+            android:layout_centerVertical="true"
+            android:text="Nicole @Ghroupdrive"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <ListView
+        android:layout_below="@+id/tool_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/rlUserChartLayout"
+        android:id="@+id/lvUserChartList"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:cacheColorHint="#00000000"
+        android:scrollingCache="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:stackFromBottom="true"
+        android:dividerHeight="0dp"
+        android:divider="@null"
+        android:paddingBottom="10dp"
+        android:transcriptMode="alwaysScroll"
+        android:scrollbarSize="5dip"></ListView>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rlUserChartLayout"
+        android:background="@android:color/white">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#adaeae"></View>
+        <EditText
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minLines="2"
+            android:layout_toLeftOf="@+id/ivSend"
+            android:hint="New message"
+            android:id="@+id/etMessage"
+            android:maxLines="6"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:src="@drawable/send"
+            android:layout_height="35dp"
+            android:id="@+id/ivSend"
+            android:layout_alignBottom="@+id/etMessage"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:background="@drawable/searchbackground">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/llRow">
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00 AM"
+                android:id="@+id/tvTime"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GHC 2.00"
+                android:layout_alignBottom="@+id/tvTime"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentRight="true"
+                android:id="@+id/tvPrice"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROUTE"
+            android:textColor="#787777"
+            android:textSize="14sp"/>
+
+
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/onecircle"
+                    android:id="@+id/ivTop"/>
+
+
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_toRightOf="@+id/ivTop"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/locationpointer"/>
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_toRightOf="@+id/ivBottom"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/locationpointer"/>
+
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginRight="-20dp"
+                    android:src="@drawable/rotate_dashes"
+                    android:layout_below="@+id/ivTop"
+                    android:layout_above="@+id/ivBottom"/>
+
+
+                <ImageView
+                    android:id="@+id/ivBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/onecircle"/>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:id="@+id/tvStarting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Commonwealth Hall"
+                    android:textColor="#787777"
+                    android:textSize="13sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Akuaffo Hall"
+                        android:id="@+id/tvMid1"
+                        android:visibility="gone"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvMid2"
+                        android:visibility="gone"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="International Student Hostel"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Elizabeth Sey memorial Hall"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="#787777"
+                    android:textSize="13sp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 seats Available"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:id="@+id/tvAv"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#787777"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            android:src="@drawable/sampimage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:elevation="8dp"
+            app:border_width="0dp"
+            android:layout_gravity="center_vertical"
+            app:border_color="#FFF"
+
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Josephine Surname"
+                android:textStyle="bold"
+                android:id="@+id/tvDriverName"
+                android:textColor="#212222"
+                android:textSize="14sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                  <ImageView
+                      android:layout_width="18dp"
+                      android:layout_height="18dp"
+                      android:layout_gravity="center_vertical"
+                      android:src="@drawable/caricon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toyota Corolla"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#444545"
+                    android:id="@+id/tvCarType"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

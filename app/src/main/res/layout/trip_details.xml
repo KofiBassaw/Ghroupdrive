@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="#dbdfe8">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/llImages">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/tripoval"
+                        android:layout_margin="5dp"
+                        android:id="@+id/ivOne"/>
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:src="@drawable/tripoval"
+                        android:layout_margin="5dp"
+                        android:id="@+id/ivTwo"/>
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/tripoval"
+                        android:layout_margin="5dp"
+                        android:id="@+id/ivThree"/>
+
+
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/signupbackground"
+                    android:layout_height="60dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ivProfile">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="josephine Surname"
+                            android:textSize="14sp"
+                            android:maxLines="1"
+                            android:id="@+id/tvName"
+                            android:ellipsize="end"
+                            android:textColor="#2f2f30"/>
+
+                        <RatingBar android:id="@+id/ratingbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:stepSize="1.0"
+                            android:rating="5"
+                            android:layout_marginTop="5dp"
+                            style="?android:attr/ratingBarStyleSmall"></RatingBar>
+                    </LinearLayout>
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/ivProfile"
+                        android:src="@drawable/sampimage"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:elevation="8dp"
+                        app:border_width="0dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        app:border_color="#FFF"
+
+                        />
+
+
+                </RelativeLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/signupbackground"
+                    android:layout_marginTop="10dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/car2"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Setting off at"
+                            android:textSize="14sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:textColor="#5c5c5d"/>
+                        <TextView
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Seat token"
+                            android:textSize="14sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:textColor="#5c5c5d"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6:30 PM"
+                            android:textSize="16sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:textColor="#2f2f30"/>
+                        <TextView
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GHS 1.88"
+                            android:textSize="16sp"
+                            android:id="@+id/tvPrice"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:textColor="#2f2f30"/>
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/signupbackground"
+                    android:layout_marginTop="10dp">
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="220dp"
+                        android:layout_height="270dp"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/seatbackgound">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="SELECT SEAT"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_marginTop="15dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                   android:layout_marginRight="-20dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/driverseat"/>
+
+
+
+
+                                <com.andexert.library.RippleView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    card_view:rv_color="@android:color/white"
+                                    card_view:rv_centered="true"
+                                    card_view:rv_rippleDuration="200"
+                                    android:id="@+id/rpSeat1">
+
+                                    <ImageView
+                                        android:layout_marginLeft="-20dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="72dp"
+                                        android:id="@+id/ivSeat1"
+                                        android:src="@drawable/one_empty"/>
+                                </com.andexert.library.RippleView>
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <com.andexert.library.RippleView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    card_view:rv_color="@android:color/white"
+                                    card_view:rv_centered="true"
+                                    card_view:rv_rippleDuration="200"
+                                    android:id="@+id/rpSeat2">
+                                    <ImageView
+                                        android:layout_marginLeft="33dp"
+                                        android:layout_width="60dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/ivSeat2"
+                                        android:src="@drawable/two_empty"/>
+
+                                </com.andexert.library.RippleView>
+
+
+
+
+
+                                <com.andexert.library.RippleView
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="43dp"
+                                    android:layout_height="wrap_content"
+                                    card_view:rv_color="@android:color/white"
+                                    card_view:rv_centered="true"
+                                    card_view:rv_rippleDuration="200"
+                                    android:id="@+id/rpSeat3">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/ivSeat3"
+                                        android:src="@drawable/three_empty"/>
+
+
+                                </com.andexert.library.RippleView>
+
+
+
+
+
+
+                                <com.andexert.library.RippleView
+                                    android:layout_alignParentRight="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    card_view:rv_color="@android:color/white"
+                                    card_view:rv_centered="true"
+
+                                    card_view:rv_rippleDuration="200"
+                                    android:id="@+id/rpSeat4">
+                                    <ImageView
+
+                                        android:layout_width="60dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/ivSeat4"
+                                        android:layout_marginRight="33.5dp"
+                                        android:src="@drawable/four_locked"/>
+
+                                </com.andexert.library.RippleView>
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+
+

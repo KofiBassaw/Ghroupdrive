@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ghroupdrive.app" >
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application
+        android:name=".GlobalClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" >
+
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".Home"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".UserProfile"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".DriverJoinActivity"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".DriverRouteSelection"
+            android:label="@string/app_name" >
+
+        </activity>
+
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".DriverHome"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".DriverTrips"
+            android:label="@string/app_name" >
+
+        </activity>
+
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".WalletActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/app_name" >
+
+        </activity>
+
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".RiderHome"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".Chat"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".RiderJoinActivity"
+            android:label="@string/app_name" >
+
+        </activity>
+
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".Trips"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".AfterLoadingWallet"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:theme="@style/AppTheme.Welcome"
+            android:name=".WelcomeScreen"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:theme="@style/AppTheme.signup"
+            android:name=".AfterSignUp"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
+
+            android:name=".SignUp"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.Login">
+
+        </activity>
+               <activity
+                   android:theme="@style/AppTheme"
+            android:name=".SplashScreen"
+            android:label="@string/app_name" >
+
+
+        </activity>
+
+
+
+
+
+
+        <receiver
+            android:name=".Receiver3"
+            android:enabled="true"
+            android:exported="true"
+            android:label="MyReciever">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.DATA_SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+
+
+
+
+            </intent-filter>
+
+
+        </receiver>
+
+
+
+    </application>
+
+</manifest>

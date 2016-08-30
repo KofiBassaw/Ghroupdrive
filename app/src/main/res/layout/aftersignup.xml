@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="32">
+
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+
+
+
+
+
+
+<RelativeLayout
+    android:background="#3fba91"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="50">
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@color/colorPrimary"
+        card_view:rv_centered="true"
+        android:layout_centerVertical="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpUpload">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:id="@+id/llUpload">
+
+
+                ​
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfile"
+                    android:src="@drawable/profilegreen"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="8dp"
+                    app:border_width="0dp"
+                    android:layout_gravity="center_horizontal"
+                    app:border_color="#FFF"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Picture"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patrick Kumah"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="18sp"
+                    android:id="@+id/tvName"
+                    android:textColor="#144e3b"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/pbBar"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+</RelativeLayout>
+
+
+
+
+
+               <RelativeLayout
+                   android:background="#39ab85"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="50">
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="50"
+                       android:orientation="vertical">
+
+
+
+                       <com.andexert.library.RippleView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           card_view:rv_color="@color/colorPrimary"
+                           card_view:rv_centered="true"
+                           card_view:rv_rippleDuration="200"
+                           android:id="@+id/rpIhave"
+                           android:layout_marginTop="25dp">
+                           <RelativeLayout
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginRight="20dp"
+                               android:layout_marginLeft="20dp"
+                               android:id="@+id/rlIhave">
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="I have a car"
+                                   android:textSize="16sp"
+                                   android:id="@+id/tvIhave"
+                                   android:textColor="@android:color/white"/>
+                               <TextView
+                                   android:textColor="#1f6c52"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="I will offer rides and get paid"
+                                   android:textSize="14sp"
+
+                                   android:layout_below="@+id/tvIhave"/>
+                               <RadioButton
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentRight="true"
+                                   android:checked="true"
+                                   android:id="@+id/rbIHave"/>
+                           </RelativeLayout>
+                       </com.andexert.library.RippleView>
+
+
+
+                       <com.andexert.library.RippleView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           card_view:rv_color="@color/colorPrimary"
+                           card_view:rv_centered="true"
+                           card_view:rv_rippleDuration="200"
+                           android:id="@+id/rpIDont"
+                           android:layout_marginTop="25dp">
+                           <RelativeLayout
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginRight="20dp"
+                               android:layout_marginLeft="20dp"
+                               android:id="@+id/rlIDont">
+
+                               <TextView
+                                   android:textColor="@android:color/white"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="I don't have a car"
+                                   android:textSize="16sp"
+                                   android:id="@+id/tvIdont"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="I will join rides and pay a token"
+                                   android:textSize="14sp"
+                                   android:textColor="#1f6c52"
+                                   android:layout_below="@+id/tvIdont"/>
+                               <RadioButton
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentRight="true"
+                                   android:id="@+id/rbIDont"/>
+                           </RelativeLayout>
+                       </com.andexert.library.RippleView>
+
+
+
+
+
+
+                       <EditText
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="25dp"
+                           android:layout_marginLeft="25dp"
+                           android:layout_marginTop="20dp"
+                           android:hint="Enter phone number"
+                           android:id="@+id/etPhone"
+                           android:inputType="phone"
+                           android:visibility="gone"
+                           android:gravity="center_horizontal"/>
+
+
+
+
+
+                   </LinearLayout>
+               </RelativeLayout>
+
+
+
+
+
+
+
+
+
+           </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="68">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#35000000"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rpVerify">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Getting To Know You"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#131414"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:text="Setting up with the most basic information about you increases the quality and standing of your profile"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#131414"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <com.andexert.library.RippleView
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            card_view:rv_color="@android:color/white"
+            card_view:rv_centered="true"
+            card_view:rv_rippleDuration="200"
+            android:id="@+id/rpVerify">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/rlVerify"
+                android:background="@color/colorPrimary">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="18sp"
+                    android:text="VERIFY"
+                    android:id="@+id/tvContinue"
+                    android:textColor="@android:color/white"/>
+            </RelativeLayout>
+        </com.andexert.library.RippleView>
+    </RelativeLayout>
+</LinearLayout>

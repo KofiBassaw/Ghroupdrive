@@ -1,0 +1,51 @@
+
+<resources>
+    <color name="colorPrimary">#2d9cf5</color>
+    <color name="colorPrimaryDark">#0883e6</color>
+    <color name="grey_color">#dbdfe8</color>
+    <color name="customMainText">#252a34</color>
+    <color name="facebookcolor">#2753ad</color>
+    <color name="title_color">#999999</color>
+    <color name="pending">#869ca5</color>
+    <color name="delayed">#e24b4b</color>
+    <color name="delivered">#55b59a</color>
+    <color name="priceColor">#555555</color>
+    <color name="background_grey">#f1f1f1</color>
+    <color name="edit_text_line">#dddddd</color>
+    <color name="dvla_grey">#b2b5b9</color>
+    <color name="dvla">#6c6f73</color>
+    <color name="settings_black">#555555</color>
+    <color name="mainback">#e5eaee</color>
+
+    <color name="apptheme_color">#121212</color>
+    <color name="uncompleted">#51f7ff3a</color>
+
+
+
+
+
+
+    <color name="song_panel">#f6f7fb</color>
+    <color name="song_circle">#eeeeee</color>
+
+
+
+
+    <color name="signEmail">#99173E</color>
+    <color name="signFacebook">#2C4389</color>
+
+
+    <color name="complete_profile">#21A23A</color>
+
+    <color name="logintextbox">#56717d</color>
+    <color name="logintextbox_deep">#415662</color>
+    <color name="black_translucent">#80000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#dddddd</color>
+
+
+
+
+
+
+</resources>

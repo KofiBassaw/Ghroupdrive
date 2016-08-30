@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbdfe8">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/searchbackground">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/ivSearch"
+            android:src="@drawable/search_inactive"/>
+        <AutoCompleteTextView
+            android:id="@+id/autocompleteView"
+            android:layout_width="match_parent"
+            android:layout_toRightOf="@+id/ivSearch"
+            android:layout_height="match_parent"
+            android:hint="where do you need a ride to?"
+            android:background="@android:color/transparent"
+            android:padding="15dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/rlLocation"
+        android:visibility="gone"
+        android:background="@drawable/searchbackground">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/autoLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="where do you need a ride to?"
+            android:background="@android:color/transparent"
+            android:padding="15dp"/>
+
+    </RelativeLayout>
+
+
+
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:clipToPadding="false"
+          android:paddingLeft="10dp"
+          android:paddingRight="10dp"/>
+
+
+      <ProgressBar
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:id="@+id/pbBar"
+          android:visibility="gone"/>
+
+
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:text="No Rides Available"
+          android:id="@+id/tvRides"/>
+
+
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:text="Reload"
+          android:id="@+id/bReload"
+          android:visibility="gone"/>
+  </RelativeLayout>
+
+
+</LinearLayout>
