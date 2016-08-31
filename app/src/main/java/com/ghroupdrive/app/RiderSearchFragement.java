@@ -1,6 +1,9 @@
 package com.ghroupdrive.app;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,9 +12,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -30,6 +35,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 /**
  * Created by matiyas on 8/9/16.
@@ -165,7 +172,7 @@ public class RiderSearchFragement extends Fragment {
                 {
 
                     pbBar.setVisibility(View.VISIBLE);
-                     String ids = "?"+StaticVariables.STARTING+"="+fromLocId+"&"+StaticVariables.ENDING+"="+toLocId;
+                     String ids = "?"+StaticVariables.ACCESSCODE+"="+functions.getPref(StaticVariables.ACCESSCODE,"")+"&"+StaticVariables.FROMID+"="+fromLocId+"&"+StaticVariables.TOID+"="+toLocId;
                     getLocation(ids);
                 }
 
@@ -188,7 +195,7 @@ public class RiderSearchFragement extends Fragment {
                 {
                     pbBar.setVisibility(View.VISIBLE);
                     pbBar.setVisibility(View.VISIBLE);
-                    String ids = "?"+StaticVariables.FROMID+"="+fromLocId+"&"+StaticVariables.TOID+"="+toLocId;
+                    String ids = "?"+StaticVariables.ACCESSCODE+"="+functions.getPref(StaticVariables.ACCESSCODE,"")+"&"+StaticVariables.FROMID+"="+fromLocId+"&"+StaticVariables.TOID+"="+toLocId;
                     getLocation(ids);
                 }
 
@@ -223,12 +230,10 @@ public class RiderSearchFragement extends Fragment {
 
 
 
-
-
     private void getLocation(String idsString)
     {
         idS  = idsString;
-        String url = "Rides";
+        String url = "Rides?"+StaticVariables.ACCESSCODE+"="+functions.getPref(StaticVariables.ACCESSCODE,"")+"&";
         if(!idsString.contentEquals(""))
         {
             url="SearchRides"+idsString;
@@ -353,7 +358,7 @@ public class RiderSearchFragement extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
+        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
 
 
 
@@ -376,6 +381,49 @@ public class RiderSearchFragement extends Fragment {
         );
     }
 
+
+
+
+
+
+
+
+    private final BroadcastReceiver mHandleMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+
+            String type = intent.getStringExtra("type");
+
+            if (type.contentEquals("gotit"))
+            {
+                functions.setPref(StaticVariables.HASGOTITSEARCH,true);
+                details.remove(0);
+                recyclerAdapter.notifyItemRemoved(0);
+            }
+
+
+        }
+    };
+
+
+
+    @Override
+    public void onResume() {
+        getActivity().registerReceiver(mHandleMessageReceiver, new IntentFilter(
+                StaticVariables.SEARCHMESSAGE));
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        try {
+            getActivity().unregisterReceiver(mHandleMessageReceiver);
+        } catch (Exception e) {
+            Log.e("rror", "> " + e.getMessage());
+        }
+        super.onDestroy();
+    }
 
 
 

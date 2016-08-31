@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="5dp"
+    android:id="@+id/cvLayout"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardPreventCornerOverlap="true"
+    card_view:cardElevation="5dp"
+    card_view:cardBackgroundColor="@android:color/white">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchbackground"
+        android:id="@+id/llRow">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="50">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile1"
+                        android:src="@drawable/ovaldashes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="8dp"
+                        app:border_width="0dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        app:border_color="#FFF"
+
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="50">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile2"
+                        android:src="@drawable/ovaldashes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="8dp"
+                        app:border_width="0dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        app:border_color="#FFF"
+
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="50">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile3"
+                        android:src="@drawable/ovaldashes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="8dp"
+                        app:border_width="0dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        app:border_color="#FFF"
+
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="50">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile4"
+                        android:src="@drawable/ovaldashes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="8dp"
+                        app:border_width="0dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        app:border_color="#FFF"
+
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ROUTE"
+                    android:textColor="#787777"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6:00PM"
+                    android:id="@+id/tvTime"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#787777"
+                android:layout_marginTop="2dp"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/onecircle"
+                    android:id="@+id/ivTop"/>
+
+
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_toRightOf="@+id/ivTop"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/locationpointer"/>
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_toRightOf="@+id/ivBottom"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/locationpointer"/>
+
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginRight="-20dp"
+                    android:src="@drawable/rotate_dashes"
+                    android:layout_below="@+id/ivTop"
+                    android:layout_above="@+id/ivBottom"/>
+
+
+                <ImageView
+                    android:id="@+id/ivBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/onecircle"/>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:id="@+id/tvStartingPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Commonwealth Hall"
+                    android:textColor="#787777"
+                    android:textSize="13sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Akuaffo Hall"
+                        android:id="@+id/tvMid1Post"
+                        android:visibility="gone"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvMid2Post"
+                        android:visibility="gone"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="International Student Hostel"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvEndingPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Elizabeth Sey memorial Hall"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="#787777"
+                    android:textSize="13sp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

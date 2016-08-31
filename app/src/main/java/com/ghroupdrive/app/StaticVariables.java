@@ -60,11 +60,15 @@ public class StaticVariables {
     public static final String RATE = "Rating";
     public static final String SEAT = "Seat";
     public static final String FROMID = "From";
+    public static final String HASGOTITROUT = "hasGotItROute";
+    public static final String HASGOTITSEARCH = "hasGotItSearch";
     public static final String TOID = "To";
     public static final String JSONSTRING = "jsonString";
     public static final String BASEPRICE = "BasePrice";
+    public static final String STATUS = "Status";
     public static final String LOCATIONINTENT = " com.ghroupdrive.app.location.intent";
     public static final String TRIPSELECTION = " com.ghroupdrive.app.location.tripselection";
+    public static final String SEARCHMESSAGE = " com.ghroupdrive.app.searchmessage";
 
 
 
@@ -72,6 +76,7 @@ public class StaticVariables {
     public static final int CONTENT = 2;
     public static final int BRIEF = 3;
     public static final int BOOKTYPE = 4;
+    public static final int GOTIT = 5;
 
 
     public static List<String> locIDs = new ArrayList<>();

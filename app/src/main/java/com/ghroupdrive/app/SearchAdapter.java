@@ -29,6 +29,9 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }else if(viewType == StaticVariables.BOOKTYPE){
             final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_item, parent, false);
             return SearchBookedContent.newInstance(view);
+        }else if(viewType == StaticVariables.GOTIT){
+            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gotit_root, parent, false);
+            return GotitViewHolder.newInstance(view);
         }else
         {
             final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_item, parent, false);
@@ -58,6 +61,10 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             case StaticVariables.BOOKTYPE:
                 SearchBookedContent  holder3 = (SearchBookedContent) viewHolder;
                 holder3.setItemText(Details,_c,position);
+                break;
+            case StaticVariables.GOTIT:
+                GotitViewHolder  gotit = (GotitViewHolder) viewHolder;
+                gotit.setItemText(Details,_c,position);
                 break;
         }
 

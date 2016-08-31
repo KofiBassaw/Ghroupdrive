@@ -267,6 +267,9 @@ public class GlobalClass extends Application {
                                             else
                                             {
                                                StaticVariables.POSTEDRIDES = data.toString();
+                                                Intent it = new Intent(StaticVariables.SEARCHMESSAGE);
+                                                it.putExtra("type","postedRide");
+                                                sendBroadcast(it);
                                             }
 
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="5dp"
+    android:id="@+id/cvLayout"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardPreventCornerOverlap="true"
+    card_view:cardElevation="5dp"
+    card_view:cardBackgroundColor="@android:color/white">
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="5dp">
+      <ImageView
+          android:scaleType="fitXY"
+          android:adjustViewBounds="true"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:src="@drawable/img_gotit_search"/>
+
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="Find a Ride"
+          android:textColor="#373838"
+          android:textStyle="bold"
+          android:textSize="16sp"/>
+
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="2dp"
+          android:text="Need a ride to a lecture or Bush Carnteen? Start by searching in the box above or browse the posted routes around you below."
+          android:textColor="#373838"
+          android:textSize="14sp"/>
+
+
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp">
+          <com.andexert.library.RippleView
+              android:layout_alignParentRight="true"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              card_view:rv_color="@android:color/white"
+              card_view:rv_centered="true"
+              card_view:rv_rippleDuration="100"
+              android:id="@+id/rlGotit">
+              <RelativeLayout
+                  android:layout_width="60dp"
+                  android:layout_height="30dp"
+                  android:id="@+id/rpGotit"
+                  android:padding="5dp"
+                  android:background="@drawable/gotitblue">
+
+
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="GOT IT"
+                      android:textStyle="bold"
+                      android:textSize="12sp"
+                      android:layout_centerInParent="true"
+                      android:textColor="@color/colorPrimary"/>
+
+
+
+
+
+
+              </RelativeLayout>
+
+          </com.andexert.library.RippleView>
+      </RelativeLayout>
+
+  </LinearLayout>
+
+</android.support.v7.widget.CardView>

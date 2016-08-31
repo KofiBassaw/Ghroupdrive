@@ -498,10 +498,20 @@ public String getJsonString(JSONObject json, String title){
     public ArrayList<GettersAndSetters> formatRide(JSONArray json)
     {
         ArrayList   details = new ArrayList<>();
+        GettersAndSetters Details;
+
+
+        if(!getPref(StaticVariables.HASGOTITSEARCH,false))
+        {
+            Details = new GettersAndSetters();
+            Details.setType(StaticVariables.GOTIT);
+            details.add(Details);
+        }
+
 
 
         try
-        {GettersAndSetters Details;
+        {
             if(!StaticVariables.MYLOC.contentEquals(""))
             {
 

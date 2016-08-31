@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#dbdfe7"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rlSetOffTitle"
+        android:scrollbars="none">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:padding="10dp"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:background="@drawable/searchbackground">
+
+
+
+               <LinearLayout
+                   android:layout_marginTop="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_marginBottom="10dp">
+                   <ImageView
+                       android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       android:src="@drawable/guest_icon"
+                       android:layout_gravity="center_vertical"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Your riders are counting on you"
+                       android:textColor="#222222"
+                       android:layout_marginLeft="5dp"
+                       android:layout_gravity="center_vertical"
+                       android:textSize="16sp"/>
+
+
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_marginBottom="20dp"
+
+                   android:layout_marginRight="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:layout_weight="50">
+
+                       <de.hdodenhof.circleimageview.CircleImageView
+                           android:id="@+id/ivProfile1"
+                           android:src="@drawable/ovaldashes"
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_centerHorizontal="true"
+                           android:elevation="8dp"
+                           app:border_width="0dp"
+                           android:layout_centerInParent="true"
+                           android:layout_gravity="center_vertical"
+                           app:border_color="#FFF"
+
+                           />
+                   </RelativeLayout>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:layout_weight="50">
+
+                       <de.hdodenhof.circleimageview.CircleImageView
+                           android:id="@+id/ivProfile2"
+                           android:src="@drawable/ovaldashes"
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_centerHorizontal="true"
+                           android:elevation="8dp"
+                           app:border_width="0dp"
+                           android:layout_centerInParent="true"
+                           android:layout_gravity="center_vertical"
+                           app:border_color="#FFF"
+
+                           />
+                   </RelativeLayout>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:layout_weight="50">
+
+                       <de.hdodenhof.circleimageview.CircleImageView
+                           android:id="@+id/ivProfile3"
+                           android:src="@drawable/ovaldashes"
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_centerHorizontal="true"
+                           android:elevation="8dp"
+                           app:border_width="0dp"
+                           android:layout_centerInParent="true"
+                           android:layout_gravity="center_vertical"
+                           app:border_color="#FFF"
+
+                           />
+                   </RelativeLayout>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:layout_weight="50">
+
+                       <de.hdodenhof.circleimageview.CircleImageView
+                           android:id="@+id/ivProfile4"
+                           android:src="@drawable/ovaldashes"
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_centerHorizontal="true"
+                           android:elevation="8dp"
+                           app:border_width="0dp"
+                           android:layout_centerInParent="true"
+                           android:layout_gravity="center_vertical"
+                           app:border_color="#FFF"
+
+                           />
+                   </RelativeLayout>
+
+               </LinearLayout>
+
+
+
+
+           </LinearLayout>
+
+
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:background="@drawable/searchbackground"
+               android:orientation="vertical"
+               android:layout_height="wrap_content">
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textColor="#777777"
+                       android:layout_centerInParent="true"
+                       android:textSize="14sp"
+                       android:textStyle="bold"
+                       android:text="SETTING OFF IN 2HRS 30MINS"/>
+               </RelativeLayout>
+
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="#bebdbd"/>
+
+
+
+
+
+
+
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="ROUTE"
+                   android:textColor="#787777"
+                   android:textSize="14sp"/>
+
+
+
+
+               <LinearLayout
+                   android:padding="10dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="100dp"
+                   android:orientation="horizontal">
+                   <RelativeLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent">
+                       <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/onecircle"
+                           android:id="@+id/ivTop"/>
+
+
+
+                       <ImageView
+                           android:layout_width="14dp"
+                           android:layout_height="14dp"
+                           android:layout_toRightOf="@+id/ivTop"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginTop="2dp"
+                           android:src="@drawable/locationpointer"/>
+
+                       <ImageView
+                           android:layout_width="14dp"
+                           android:layout_height="14dp"
+                           android:layout_toRightOf="@+id/ivBottom"
+                           android:layout_alignParentBottom="true"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginTop="2dp"
+                           android:src="@drawable/locationpointer"/>
+
+                       <ImageView
+                           android:layout_width="65dp"
+                           android:layout_height="match_parent"
+                           android:layout_marginLeft="-25dp"
+                           android:layout_marginRight="-20dp"
+                           android:src="@drawable/rotate_dashes"
+                           android:layout_below="@+id/ivTop"
+                           android:layout_above="@+id/ivBottom"/>
+
+
+                       <ImageView
+                           android:id="@+id/ivBottom"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentBottom="true"
+                           android:src="@drawable/onecircle"/>
+
+                   </RelativeLayout>
+
+
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginLeft="5dp">
+
+                       <TextView
+                           android:id="@+id/tvStart"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Commonwealth Hall"
+                           android:textColor="#787777"
+                           android:textSize="13sp"/>
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:orientation="vertical">
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Akuaffo Hall"
+                               android:id="@+id/tvPoint1"
+                               android:textColor="@color/colorPrimary"
+                               android:textSize="12sp"/>
+
+                           <TextView
+                               android:layout_marginTop="5dp"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:textColor="@color/colorPrimary"
+                               android:id="@+id/tvPoint2"
+                               android:text="International Student Hostel"
+                               android:textSize="12sp"/>
+                       </LinearLayout>
+
+
+                       <TextView
+                           android:id="@+id/tvEndPoint"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Elizabeth Sey memorial Hall"
+                           android:layout_alignParentBottom="true"
+                           android:textColor="#787777"
+                           android:textSize="13sp"/>
+
+                   </RelativeLayout>
+               </LinearLayout>
+
+
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="#bebdbd"
+                   android:layout_marginTop="20dp"/>
+
+
+
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="You are setting off at"
+                   android:textColor="#787777"
+                   android:textSize="14sp"/>
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="00:00"
+                   android:textStyle="bold"
+                   android:id="@+id/tvTime"
+                   android:textColor="#373737"
+                   android:textSize="14sp"/>
+
+
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="You will receive per seat"
+                   android:textColor="#787777"
+                   android:textSize="14sp"/>
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Not Set"
+                   android:id="@+id/tvPrice"
+                   android:textStyle="bold"
+                   android:textColor="#373737"
+                   android:textSize="14sp"/>
+
+
+
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="You have reserved"
+                   android:textColor="#787777"
+                   android:textSize="14sp"/>
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="No seat Reserved"
+                   android:id="@+id/tvReserved"
+                   android:textStyle="bold"
+                   android:textColor="#373737"
+                   android:textSize="14sp"/>
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="#bebdbd"
+                   android:layout_marginTop="20dp"
+                   android:layout_marginBottom="80dp"/>
+
+
+           </LinearLayout>
+       </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlSetOffTitle"
+        android:layout_above="@+id/rpSetOff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/arrow_down_pink"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click button to notify your riders that you have set off"
+                android:textColor="#787777"
+                android:id="@+id/tvTitle"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.andexert.library.RippleView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:rv_color="@android:color/white"
+        card_view:rv_centered="true"
+        card_view:rv_rippleDuration="200"
+        android:id="@+id/rpSetOff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/rlSetOff"
+            android:background="#f83563">
+
+
+
+            <TextView
+                android:id="@+id/tvSetOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I'M SETTING OFF NOW"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/white"/>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </com.andexert.library.RippleView>
+</RelativeLayout>

@@ -3,14 +3,19 @@ package com.ghroupdrive.app;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +24,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andexert.library.RippleView;
+import com.androidquery.AQuery;
+import com.androidquery.callback.ImageOptions;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Arrays;
@@ -53,6 +64,16 @@ public class DriverRoute extends Fragment {
     ImageView point1,point2,ivTop,ivTopPoint,ivLine,ivBottom,ivBottomPoint;
     UserFunctions functions;
     ProgressDialog pDIalogi;
+    LinearLayout llContainer;
+    RelativeLayout rlGotIt;
+    CardView cvLayout;
+    RippleView rpGotIt;
+    LinearLayout llMyRides;
+    ImageView profiles[] = new ImageView[4];
+    TextView tvTime;
+    TextView tvStartingPost,tvEndingPost,tvMid1Post,tvMid2Post;
+    private static final int POSTEDDETAILS = 2;
+    CardView cvLayout;
 
 
     @Override
@@ -80,6 +101,23 @@ public class DriverRoute extends Fragment {
         ivLine = (ImageView) theLayout.findViewById(R.id.ivLine);
         ivBottom = (ImageView) theLayout.findViewById(R.id.ivBottom);
         ivBottomPoint = (ImageView) theLayout.findViewById(R.id.ivBottomPoint);
+        llContainer = (LinearLayout) theLayout.findViewById(R.id.llContainer);
+        cvLayout = (CardView) theLayout.findViewById(R.id.cvLayout);
+        rlGotIt = (RelativeLayout) theLayout.findViewById(R.id.rlGotIt);
+        rpGotIt = (RippleView) theLayout.findViewById(R.id.rpGotIt);
+        llMyRides = (LinearLayout) theLayout.findViewById(R.id.llMyRides);
+        profiles[0] = (ImageView) theLayout.findViewById(R.id.ivProfile1);
+        profiles[1] = (ImageView) theLayout.findViewById(R.id.ivProfile2);
+        profiles[2] = (ImageView) theLayout.findViewById(R.id.ivProfile3);
+        profiles[3] = (ImageView) theLayout.findViewById(R.id.ivProfile4);
+        cvLayout = (CardView) theLayout.findViewById(R.id.cvLayout);
+
+        tvTime = (TextView) theLayout.findViewById(R.id.tvTime);
+        tvStartingPost = (TextView) theLayout.findViewById(R.id.tvStartingPost);
+        tvEndingPost = (TextView) theLayout.findViewById(R.id.tvEndingPost);
+        tvMid1Post = (TextView) theLayout.findViewById(R.id.tvMid1Post);
+        tvMid2Post = (TextView) theLayout.findViewById(R.id.tvMid2Post);
+
         //List<String> dogList = Arrays.asList(dogArr);
         List<String> dogList = StaticVariables.locNames;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), layoutItemId, dogList);
@@ -87,6 +125,12 @@ public class DriverRoute extends Fragment {
         autocompleteView1.setAdapter(adapter);
         functions = new UserFunctions(getActivity());
 
+
+
+        if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
+        {
+            cvLayout.setVisibility(View.VISIBLE);
+        }
 
 
 
@@ -112,6 +156,23 @@ public class DriverRoute extends Fragment {
                     ivTop.setVisibility(View.GONE);
                     ivTopPoint.setVisibility(View.GONE);
                     ivLine.setVisibility(View.GONE);
+
+                    if(destination.contentEquals(""))
+                    {
+                        if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
+                        {
+                            cvLayout.setVisibility(View.VISIBLE);
+                        }
+                        //hide the card
+                        //hide the box
+                        llContainer.setVisibility(View.GONE);
+                    }else
+                    {
+                        cvLayout.setVisibility(View.GONE);
+                    }
+                }else
+                {
+                    cvLayout.setVisibility(View.GONE);
                 }
             }
         });
@@ -139,6 +200,24 @@ public class DriverRoute extends Fragment {
                     ivBottom.setVisibility(View.GONE);
                     ivBottomPoint.setVisibility(View.GONE);
                     ivLine.setVisibility(View.GONE);
+                    if(starting.contentEquals(""))
+                    {
+                        if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
+                        {
+                            cvLayout.setVisibility(View.VISIBLE);
+                        }
+                        //show the card
+                        //hide the box
+                        llContainer.setVisibility(View.GONE);
+                    }else
+                    {
+
+                            cvLayout.setVisibility(View.GONE);
+
+                    }
+                }else
+                {
+                    cvLayout.setVisibility(View.GONE);
                 }
             }
         });
@@ -166,6 +245,10 @@ public class DriverRoute extends Fragment {
 
                 }
 
+
+
+                //show the box;
+                llContainer.setVisibility(View.VISIBLE);
 
                 //bindStrting(selected);
 
@@ -196,6 +279,8 @@ public class DriverRoute extends Fragment {
 
                 }
 
+                //show the box;
+
 
 
                 //bindStrting(selected);
@@ -209,8 +294,135 @@ public class DriverRoute extends Fragment {
 
 
 
+
+        if(!StaticVariables.POSTEDRIDES.contentEquals(""))
+        {
+            postedRide();
+        }
+
+
+        rlGotIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rpGotIt.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+                    @Override
+                    public void onComplete(RippleView rippleView) {
+                        functions.setPref(StaticVariables.HASGOTITROUT,true);
+                        cvLayout.setVisibility(View.GONE);
+                    }
+                });
+            }
+        });
         return  theLayout;
     }
+
+
+
+
+    private void postedRide()
+    {
+        try {
+
+            for(int i=0; i<profiles.length; i++)
+            {
+                profiles[i].setImageResource(R.drawable.ovaldashes);
+            }
+
+            JSONArray rides = new JSONArray(StaticVariables.POSTEDRIDES);
+
+            if(rides.length()>0)
+            {
+
+
+               final JSONObject oneJson = rides.getJSONObject(0);
+
+                RideObject rb = new RideObject(oneJson.toString(),functions);
+
+                tvTime.setText(rb.SetOffTime);
+
+                if(rb.RideStart != null)
+                {
+                    tvStartingPost.setText(functions.getJsonString(rb.RideStart, StaticVariables.NAME));
+                }
+
+
+
+
+
+                if(rb.RideEnd != null)
+                {
+                    tvEndingPost.setText(functions.getJsonString(rb.RideEnd, StaticVariables.NAME));
+                }
+
+
+
+                if(rb.Stop1 != null)
+                {
+                    tvMid1Post.setText(functions.getJsonString(rb.Stop1, StaticVariables.NAME));
+                }else{
+                    tvMid1Post.setVisibility(View.GONE);
+                }
+
+
+                if(rb.Stop2 != null)
+                {
+                    tvMid2Post.setText(functions.getJsonString(rb.Stop2, StaticVariables.NAME));
+                }else{
+                    tvMid2Post.setVisibility(View.GONE);
+                }
+
+
+                JSONArray passengers = rb.Passengers;
+
+
+
+
+                AQuery aq = new AQuery(getActivity());
+                ImageOptions op=new ImageOptions();
+                op.fileCache = true;
+                op.memCache=true;
+                op.targetWidth = 0;
+                op.fallback = R.drawable.ovaldashes;
+
+                for(int i=0; i<passengers.length(); i++)
+                {
+                    JSONObject oneC =  passengers.getJSONObject(i);
+                    ProfileObject po = new ProfileObject(oneC.toString(),functions);
+                    String url = StaticVariables.CLOUDORDINARYURL+"w_100,h_100/"+po.ProfileUrl+".jpg";
+                    aq.id(profiles[i]).image(url, op);
+                }
+
+
+
+                llMyRides.setVisibility(View.VISIBLE);
+
+
+
+                cvLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent it = new Intent(getActivity(), PostedRideDetails.class);
+                        it.putExtra(StaticVariables.JSONSTRING,oneJson.toString());
+                        startActivityForResult(it,POSTEDDETAILS);
+                    }
+                });
+
+            }else
+            {
+                llMyRides.setVisibility(View.GONE);
+            }
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+
+
+
+
+    }
+
+
 
 
 
@@ -309,6 +521,9 @@ public class DriverRoute extends Fragment {
 
             */
 
+        }else if(resultCode ==  getActivity().RESULT_OK && requestCode == POSTEDDETAILS)
+        {
+            lfhgvjkahegrdjakjerrfgjbfhsk
         }
     }
 
@@ -324,6 +539,8 @@ private void getInBetween()
     ConnectionDetector cd=new ConnectionDetector(getActivity());
     if(cd.isConnectingToInternet()){
         //System.out.println(functions.getCokies());
+
+        System.out.println(StaticVariables.BASEURL + "Route?" + StaticVariables.ACCESSCODE + "=" + functions.getPref(StaticVariables.ACCESSCODE, "") + "&" + StaticVariables.FROMID+"="+fromLocId+"&"+StaticVariables.TOID+"="+toLocId);
         Ion.with(this)
                 .load("GET", StaticVariables.BASEURL + "Route?" + StaticVariables.ACCESSCODE + "=" + functions.getPref(StaticVariables.ACCESSCODE, "") + "&" + StaticVariables.FROMID+"="+fromLocId+"&"+StaticVariables.TOID+"="+toLocId)
                 .asString()
@@ -418,6 +635,46 @@ private void getInBetween()
         });
 
         dd.show();
+    }
+
+
+
+
+
+
+    private final BroadcastReceiver mHandleMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+
+            String type = intent.getStringExtra("type");
+
+            if (type.contentEquals("postedRide"))
+            {
+               postedRide();
+            }
+
+
+        }
+    };
+
+
+
+    @Override
+    public void onResume() {
+        getActivity().registerReceiver(mHandleMessageReceiver, new IntentFilter(
+                StaticVariables.SEARCHMESSAGE));
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        try {
+            getActivity().unregisterReceiver(mHandleMessageReceiver);
+        } catch (Exception e) {
+            Log.e("rror", "> " + e.getMessage());
+        }
+        super.onDestroy();
     }
 
 }

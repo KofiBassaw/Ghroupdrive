@@ -24,6 +24,7 @@ int Seat2;
 int Seat3;
 int Seat4;
 int Rate;
+int Status;
 
 
     public RideObject(String jsonString, UserFunctions function)
@@ -48,6 +49,7 @@ int Rate;
             this.Seat3 = function.getInt(json, StaticVariables.SEAT3);
             this.Seat4 = function.getInt(json, StaticVariables.SEAT4);
             this.Rate = function.getInt(json, StaticVariables.RATE);
+            this.Status = function.getInt(json, StaticVariables.STATUS);
 
 
         }catch (Exception ext)
