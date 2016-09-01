@@ -14,7 +14,7 @@ public class DriverTripOthersFragment extends Fragment {
 
     TextView tvLoc1,tvLoc2,tvStart,tvEnd;
     String last = "", first ="", start ="", end ="";
-   public static TextView tvSet,tvBasePrice;
+   public static TextView tvSet,tvBasePrice,tvSeats;
     UserFunctions functions;
 
     @Override
@@ -31,6 +31,7 @@ public class DriverTripOthersFragment extends Fragment {
         tvEnd = (TextView) theLayout.findViewById(R.id.tvEnd);
         tvSet = (TextView) theLayout.findViewById(R.id.tvSet);
         tvBasePrice = (TextView) theLayout.findViewById(R.id.tvBasePrice);
+        tvSeats = (TextView) theLayout.findViewById(R.id.tvSeats);
 
         last = getActivity().getIntent().getStringExtra("last");
         first = getActivity().getIntent().getStringExtra("first");

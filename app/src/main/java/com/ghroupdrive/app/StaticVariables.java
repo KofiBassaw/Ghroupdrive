@@ -69,6 +69,7 @@ public class StaticVariables {
     public static final String LOCATIONINTENT = " com.ghroupdrive.app.location.intent";
     public static final String TRIPSELECTION = " com.ghroupdrive.app.location.tripselection";
     public static final String SEARCHMESSAGE = " com.ghroupdrive.app.searchmessage";
+    public static final String STARTACTIVITYINTENT = " com.ghroupdrive.app.startactivityintent";
 
 
 
@@ -105,5 +106,6 @@ public class StaticVariables {
     //database types
     public static final int LOCATIONTYPE = 1;
     public static final int RIDERTYPE = 2;
+    public static final int PROFILETYPE = 3;
 
 }

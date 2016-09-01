@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -40,6 +41,7 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileInputStream;
@@ -87,7 +89,7 @@ ViewPager vpPager2;
     ProgressBar rlPbarGallery;
     RelativeLayout rlGallery;
     RippleView rpGallery;
-    TextView tvName,tvInviteRem;
+    TextView tvName,tvInviteRem,tvBadges,tvPoint,tvRides;
     ProgressDialog pDIalogi;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,6 +104,9 @@ ViewPager vpPager2;
         ivProfile = (ImageView) theLayout.findViewById(R.id.ivProfile);
         tvName = (TextView) theLayout.findViewById(R.id.tvName);
         tvInviteRem = (TextView) theLayout.findViewById(R.id.tvInviteRem);
+        tvBadges = (TextView) theLayout.findViewById(R.id.tvBadges);
+        tvPoint = (TextView) theLayout.findViewById(R.id.tvPoint);
+        tvRides = (TextView) theLayout.findViewById(R.id.tvRides);
         iview[0] = (ImageView) theLayout.findViewById(R.id.ivOne);
         iview[1] = (ImageView) theLayout.findViewById(R.id.ivTwo);
         rlInvite = (RelativeLayout) theLayout.findViewById(R.id.rlInvite);
@@ -231,9 +236,49 @@ ViewPager vpPager2;
 
 
         ivProfile.setOnClickListener(this);
+
+
+
+        bindDetails();
+
         return  theLayout;
     }
 
+
+    private void bindDetails()
+    {
+
+        try
+        {
+            Database db = new Database(getActivity());
+            db.open();
+            Cursor c = db.getSampleDetails(StaticVariables.PROFILETYPE,functions.getPref(StaticVariables.ACCESSCODE,""));
+            if(c.getCount()>0)
+            {
+                c.moveToFirst();
+
+                String jsonString = c.getString(c.getColumnIndex(Database.JSONSTRING));
+
+                ProfileObject po = new ProfileObject(jsonString,functions);
+
+                tvBadges.setText(""+po.BadgesCount);
+                tvPoint.setText(""+po.PointsCount);
+                tvRides.setText(""+po.RidesCount);
+
+            }else
+            {
+                getProfile(functions.getPref(StaticVariables.ACCESSCODE,""));
+            }
+
+            c.close();
+            db.close();
+
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+    }
 
     private void alternateImage(int pos)
     {
@@ -808,5 +853,62 @@ ViewPager vpPager2;
 
 
 
+
+
+
+
+    private void getProfile(final String accessCode)
+    {
+
+        ConnectionDetector cd=new ConnectionDetector(getActivity());
+        if(cd.isConnectingToInternet()){
+            //System.out.println(functions.getCokies());
+            Ion.with(this)
+                    .load("GET", StaticVariables.BASEURL + "Profile?"+StaticVariables.ACCESSCODE+"="+accessCode)
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                        @Override
+                        public void onCompleted(Exception e, String result) {
+                            try {
+                                if (e != null) {
+                                    e.printStackTrace();
+                                    //System.out.println("---------------------------------- error");
+                                }
+
+                                System.out.println("bbbbbbbbbbbbbbbb: Profile "+    result);
+                                if (result != null) {
+                                    JSONObject json = new JSONObject(result);
+                                    int code = json.getInt(StaticVariables.CODE);
+                                    String message = functions.getJsonString(json, StaticVariables.MESSAGE);
+                                    if (code == 200) {
+                                        JSONObject data = functions.getJsonObject(json, StaticVariables.DATA);
+
+
+                                        if (data != null) {
+
+                                            Database db = new Database(getActivity());
+                                            db.open();
+                                            db.insertSampleDetails(accessCode,StaticVariables.PROFILETYPE,data.toString());
+                                            db.close();
+                                            bindDetails();
+                                        }
+
+                                    }
+
+
+                                }
+
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+                    });
+
+
+        }
+
+
+
+    }
 
 }

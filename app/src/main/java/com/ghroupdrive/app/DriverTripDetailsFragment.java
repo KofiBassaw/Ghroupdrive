@@ -101,6 +101,7 @@ public class DriverTripDetailsFragment extends Fragment implements View.OnClickL
                                 oneS = false;
                                 DriverTrips.seat1 = 0;
                             }
+                        checkTrips();
 
                     }
                 });
@@ -124,6 +125,8 @@ public class DriverTripDetailsFragment extends Fragment implements View.OnClickL
                               DriverTrips.seat2 = 0;
                           }
 
+                        checkTrips();
+
                     }
                 });
                 break;
@@ -146,6 +149,8 @@ public class DriverTripDetailsFragment extends Fragment implements View.OnClickL
                            threeS = false;
                            DriverTrips.seat3 = 0;
                        }
+                        checkTrips();
+
 
                     }
                 });
@@ -170,6 +175,8 @@ public class DriverTripDetailsFragment extends Fragment implements View.OnClickL
                                 DriverTrips.seat3 = 0;
                             }
 
+                        checkTrips();
+
 
                     }
 
@@ -185,13 +192,73 @@ public class DriverTripDetailsFragment extends Fragment implements View.OnClickL
 
 
 
+
+
+    private void checkTrips()
+    {
+
+        String tripString = "";
+
+        if(oneS)
+        {
+            if (tripString.length()>0)
+                tripString += ", ";
+
+            tripString += "Seat 1";
+        }
+
+        if(twoS)
+        {
+            if (tripString.length()>0)
+                tripString += ", ";
+
+            tripString += "Seat 2";
+        }
+
+        if(threeS)
+        {
+            if (tripString.length()>0)
+                tripString += ", ";
+
+            tripString += "Seat 3";
+        }
+
+
+   if(fourS)
+        {
+            if (tripString.length()>0)
+                tripString += ", ";
+
+            tripString += "Seat 4";
+        }
+
+        if(tripString.contentEquals(""))
+        {
+            DriverTripOthersFragment.tvSeats.setText("No Seats");
+        }else
+        {
+            DriverTripOthersFragment.tvSeats.setText(tripString);
+        }
+
+    }
+
+
+
     private void showTimer()
     {
         Calendar now = Calendar.getInstance();
-        TimePickerDialog tpd = (TimePickerDialog) getActivity().getFragmentManager().findFragmentByTag("TimepickerDialog");
-       // dpd.show(getChildFragmentManager(), "TimepickerDialog");
+        TimePickerDialog tpd = TimePickerDialog.newInstance(this,now.get(Calendar.HOUR),now.get(Calendar.MINUTE),now.get(Calendar.SECOND),true);
 
-        if(tpd != null) tpd.setOnTimeSetListener(this);
+        tpd.show(getActivity().getFragmentManager(), "TimepickerDialog");
+
+               //(TimePickerDialog) getActivity().getFragmentManager().findFragmentByTag("TimepickerDialog");
+       // tpd.show(getActivity().getFragmentManager(), "TimepickerDialog");
+
+
+
+       // if(tpd != null) tpd.setOnTimeSetListener(this);
+
+
     }
 
 

@@ -98,7 +98,7 @@ public class DriverTrips extends AppCompatActivity implements View.OnClickListen
                         {
                             JsonObject data = new JsonObject();
                             data.addProperty(StaticVariables.STARTOFFTIME,startOffTime);
-                            data.addProperty(StaticVariables.CARTYPE, functions.getPref(StaticVariables.CARTYPE,""));
+                            //data.addProperty(StaticVariables.CARTYPE, functions.getPref(StaticVariables.CARTYPE,""));
                             data.addProperty(StaticVariables.ACCESSCODE, functions.getPref(StaticVariables.ACCESSCODE,""));
                             data.addProperty(StaticVariables.STARTING, startID);
                             data.addProperty(StaticVariables.MID1, firstID);
@@ -109,6 +109,8 @@ public class DriverTrips extends AppCompatActivity implements View.OnClickListen
                             data.addProperty(StaticVariables.SEAT3,seat3);
                             data.addProperty(StaticVariables.SEAT4,seat4);
 
+
+                            System.out.println("data: "+data.toString());
                               postRide(data);
 
 
@@ -224,7 +226,7 @@ public class DriverTrips extends AppCompatActivity implements View.OnClickListen
         if(cd.isConnectingToInternet()){
             //System.out.println(functions.getCokies());
             Ion.with(this)
-                    .load("POST", StaticVariables.BASEURL + "JoinRide")
+                    .load("POST", StaticVariables.BASEURL + "Rides")
                     .setJsonObjectBody(data)
                     .asString()
                     .setCallback(new FutureCallback<String>() {
@@ -289,5 +291,7 @@ public class DriverTrips extends AppCompatActivity implements View.OnClickListen
         return  (((seat1*basePrice)/2) +  ((seat2*basePrice)/2) +  ((seat3*basePrice)/2) +  ((seat4*basePrice)/2));
 
     }
+
+
 
 }

@@ -249,7 +249,7 @@ public class DriverRouteSelection extends AppCompatActivity {
                             lastPos = position;
                             changeData(position);
                             last = text;
-                            last = id;
+                            lastID = id;
                             tvLoc2.setText(last);
                             hideLast(true);
                         }

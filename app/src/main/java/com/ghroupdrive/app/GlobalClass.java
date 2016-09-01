@@ -84,6 +84,7 @@ public class GlobalClass extends Application {
             {
                 getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"1");
             }
+            getProfile(functions.getPref(StaticVariables.ACCESSCODE,""));
         }
 
 
@@ -272,6 +273,69 @@ public class GlobalClass extends Application {
                                                 sendBroadcast(it);
                                             }
 
+
+                                        }
+
+                                    }
+
+
+                                }
+
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+                    });
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    private void getProfile(final String accessCode)
+    {
+
+        ConnectionDetector cd=new ConnectionDetector(this);
+        if(cd.isConnectingToInternet()){
+            //System.out.println(functions.getCokies());
+            Ion.with(this)
+                    .load("GET", StaticVariables.BASEURL + "Profile?"+StaticVariables.ACCESSCODE+"="+accessCode)
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                        @Override
+                        public void onCompleted(Exception e, String result) {
+                            try {
+                                if (e != null) {
+                                    e.printStackTrace();
+                                    //System.out.println("---------------------------------- error");
+                                }
+
+                                System.out.println("bbbbbbbbbbbbbbbb: "+    result);
+                                if (result != null) {
+                                    JSONObject json = new JSONObject(result);
+                                    int code = json.getInt(StaticVariables.CODE);
+                                    String message = functions.getJsonString(json, StaticVariables.MESSAGE);
+                                    if (code == 200) {
+                                        JSONObject data = functions.getJsonObject(json, StaticVariables.DATA);
+
+
+                                        if (data != null) {
+
+                                            Database db = new Database(GlobalClass.this);
+                                            db.open();
+                                            db.insertSampleDetails(accessCode,StaticVariables.PROFILETYPE,data.toString());
+                                            db.close();
 
                                         }
 

@@ -73,7 +73,9 @@ public class DriverRoute extends Fragment {
     TextView tvTime;
     TextView tvStartingPost,tvEndingPost,tvMid1Post,tvMid2Post;
     private static final int POSTEDDETAILS = 2;
-    CardView cvLayout;
+    private static final int POSTEDDETAILS2 = 3;
+    RelativeLayout rlViewAll;
+    RippleView rpViewAll;
 
 
     @Override
@@ -98,6 +100,8 @@ public class DriverRoute extends Fragment {
         point2 = (ImageView) theLayout.findViewById(R.id.point2);
         ivTop = (ImageView) theLayout.findViewById(R.id.ivTop);
         ivTopPoint = (ImageView) theLayout.findViewById(R.id.ivTopPoint);
+        rlViewAll = (RelativeLayout) theLayout.findViewById(R.id.rlViewAll);
+        rpViewAll = (RippleView) theLayout.findViewById(R.id.rpViewAll);
         ivLine = (ImageView) theLayout.findViewById(R.id.ivLine);
         ivBottom = (ImageView) theLayout.findViewById(R.id.ivBottom);
         ivBottomPoint = (ImageView) theLayout.findViewById(R.id.ivBottomPoint);
@@ -110,7 +114,6 @@ public class DriverRoute extends Fragment {
         profiles[1] = (ImageView) theLayout.findViewById(R.id.ivProfile2);
         profiles[2] = (ImageView) theLayout.findViewById(R.id.ivProfile3);
         profiles[3] = (ImageView) theLayout.findViewById(R.id.ivProfile4);
-        cvLayout = (CardView) theLayout.findViewById(R.id.cvLayout);
 
         tvTime = (TextView) theLayout.findViewById(R.id.tvTime);
         tvStartingPost = (TextView) theLayout.findViewById(R.id.tvStartingPost);
@@ -124,6 +127,22 @@ public class DriverRoute extends Fragment {
         autocompleteView.setAdapter(adapter);
         autocompleteView1.setAdapter(adapter);
         functions = new UserFunctions(getActivity());
+
+
+
+        rlViewAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rpViewAll.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+                    @Override
+                    public void onComplete(RippleView rippleView) {
+
+                      Intent it = new Intent(getActivity(),PostedRideList.class);
+                        startActivityForResult(it,POSTEDDETAILS2);
+                    }
+                });
+            }
+        });
 
 
 
@@ -523,7 +542,18 @@ public class DriverRoute extends Fragment {
 
         }else if(resultCode ==  getActivity().RESULT_OK && requestCode == POSTEDDETAILS)
         {
-            lfhgvjkahegrdjakjerrfgjbfhsk
+            //lfhgvjkahegrdjakjerrfgjbfhsk
+
+        }else if(resultCode ==  getActivity().RESULT_OK && requestCode == POSTEDDETAILS2)
+        {
+            //lfhgvjkahegrdjakjerrfgjbfhsk
+            if(!StaticVariables.POSTEDRIDES.contentEquals(""))
+            {
+                postedRide();
+            }else
+            {
+                llMyRides.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -561,7 +591,7 @@ private void getInBetween()
 
                                 if(code ==  200)
                                 {
-                                    JSONObject datar = functions.getJsonObject(json,StaticVariables.DATA);
+                                    JSONArray datar = functions.getJsonArray(json,StaticVariables.DATA);
 
 
                                     if(datar != null)

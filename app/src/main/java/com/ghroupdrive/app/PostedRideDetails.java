@@ -77,14 +77,10 @@ public class PostedRideDetails extends AppCompatActivity {
                         JsonObject json = new JsonObject();
                         json.addProperty(StaticVariables.ACCESSCODE,functions.getPref(StaticVariables.ACCESSCODE,""));
                         json.addProperty(StaticVariables.RIDEID,rb.RideId);
+                        json.addProperty(StaticVariables.STATUS,(status+1));
 
-                        if(status == 0)
-                        {
-                            setOff(json,"setOff");
-                        }else if(status == 1)
-                        {
-                            setOff(json,"end");
-                        }
+                        setOff(json,"RideUpdate");
+
 
                     }
                 });
