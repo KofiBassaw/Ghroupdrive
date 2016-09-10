@@ -97,6 +97,7 @@ public class GlobalClass extends Application {
     private void getLocation(final String oldData)
     {
 
+        System.out.println(StaticVariables.BASEURL + "Locations");
         ConnectionDetector cd=new ConnectionDetector(this);
         if(cd.isConnectingToInternet()){
             //System.out.println(functions.getCokies());
@@ -238,6 +239,7 @@ public class GlobalClass extends Application {
     private void getMyRides(String accessCode, final String type)
     {
 
+        System.out.println("bbbbbbbbbbbbbbbb: ");
         ConnectionDetector cd=new ConnectionDetector(this);
         if(cd.isConnectingToInternet()){
             //System.out.println(functions.getCokies());

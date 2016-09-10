@@ -518,7 +518,8 @@ public String getJsonString(JSONObject json, String title){
                  JSONArray myRides = new JSONArray(StaticVariables.MYLOC);
                 if(myRides.length()>0)
                 {
-                    RideObject rb = new RideObject(myRides.getJSONObject(0).toString(),this);
+                    String rideJsonString = myRides.getJSONObject(0).toString();
+                    RideObject rb = new RideObject(rideJsonString,this);
                     Details = new GettersAndSetters();
                     Details.setType(StaticVariables.BOOKTYPE);
 
@@ -587,7 +588,8 @@ public String getJsonString(JSONObject json, String title){
                         Details.setPoint2("");
                     }
 
-                    Details.setJsonString(driver.toString());
+                    Details.setJsonString(rideJsonString);
+                    Details.setStatus(rb.Status);
                     details.add(Details);
                 }
             }
@@ -608,6 +610,7 @@ public String getJsonString(JSONObject json, String title){
                 {
                     JSONObject c = json.getJSONObject(i);
 
+                    RideObject rdo = new RideObject(c.toString(),this);
                     Details = new GettersAndSetters();
                     Details.setType(StaticVariables.CONTENT);
                     JSONObject driver = getJsonObject(c,StaticVariables.DRIVER);

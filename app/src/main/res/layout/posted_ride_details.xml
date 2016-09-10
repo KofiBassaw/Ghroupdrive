@@ -258,7 +258,7 @@
                        android:layout_marginLeft="5dp">
 
                        <TextView
-                           android:id="@+id/tvStart"
+                           android:id="@+id/tvStarting"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Commonwealth Hall"

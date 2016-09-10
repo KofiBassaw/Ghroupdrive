@@ -21,6 +21,7 @@ public class ProfileObject {
     int Seat;
     int  BadgesCount;
     int PointsCount;
+    JSONObject Location;
 
 
 
@@ -45,6 +46,7 @@ public class ProfileObject {
            this.BadgesCount = function.getInt(json, StaticVariables.BADGESCOUNT);
            this.PointsCount = function.getInt(json, StaticVariables.POINTCOUNT);
            this.Seat = function.getInt(json, StaticVariables.SEAT);
+           this.Location = function.getJsonObject(json, StaticVariables.LOCATION);
 
 
        }catch (Exception ex)

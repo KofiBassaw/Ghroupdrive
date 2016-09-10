@@ -33,13 +33,15 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
      private final TextView tvDriverName;
      private final TextView tvCarType;
      private final TextView tvSeatNo;
+     private final TextView tvTitle;
+     private final TextView tvTitle2;
 
 
 
 
     public SearchBookedContent(final View parent, LinearLayout llRow, ImageView ivProfile, TextView tvStarting,
                                TextView tvMid1, TextView tvMid2, TextView tvDriverName, TextView tvCarType,TextView tvEnding,
-                               TextView tvSeatNo, RelativeLayout rlViewAll,RippleView rpViewAll) {
+                               TextView tvSeatNo, RelativeLayout rlViewAll,RippleView rpViewAll, TextView tvTitle, TextView tvTitle2) {
         super(parent);
         this.llRow = llRow;
         this.ivProfile = ivProfile;
@@ -55,6 +57,8 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
         this.tvSeatNo = tvSeatNo;
         this.rlViewAll = rlViewAll;
         this.rpViewAll = rpViewAll;
+        this.tvTitle = tvTitle;
+        this.tvTitle2 = tvTitle2;
 
     }
 
@@ -71,9 +75,11 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
         TextView tvCarType = (TextView) parent.findViewById(R.id.tvCarType);
         TextView tvEnding = (TextView) parent.findViewById(R.id.tvEnding);
         TextView tvSeatNo = (TextView) parent.findViewById(R.id.tvSeatNo);
+        TextView tvTitle = (TextView) parent.findViewById(R.id.tvTitle);
+        TextView tvTitle2 = (TextView) parent.findViewById(R.id.tvTitle2);
         RelativeLayout rlViewAll = (RelativeLayout) parent.findViewById(R.id.rlViewAll);
         RippleView rpViewAll = (RippleView) parent.findViewById(R.id.rpViewAll);
-        return new SearchBookedContent(parent,llRow,ivProfile,tvStarting,tvMid1,tvMid2,tvDriverName,tvCarType,tvEnding,tvSeatNo,rlViewAll,rpViewAll);
+        return new SearchBookedContent(parent,llRow,ivProfile,tvStarting,tvMid1,tvMid2,tvDriverName,tvCarType,tvEnding,tvSeatNo,rlViewAll,rpViewAll,tvTitle,tvTitle2);
     }
 
     public void setItemText(final GettersAndSetters Details, final Context context, final int position) {
@@ -84,6 +90,16 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
         tvCarType.setText(Details.carType);
         tvEnding.setText(Details.endingPoint);
         tvSeatNo.setText(Details.seatNo);
+
+        if(Details.status == 1)
+        {
+            tvTitle.setVisibility(View.VISIBLE);
+            tvTitle2.setVisibility(View.VISIBLE);
+        }else
+        {
+            tvTitle.setVisibility(View.INVISIBLE);
+            tvTitle2.setVisibility(View.INVISIBLE);
+        }
        // tvPrice.setText("GHS " + Details.price);
         /*
         if(Details.availableSeat.contentEquals("1"))
@@ -125,13 +141,10 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
 
-                /*
-
-                Intent it = new Intent(new Intent(context, Trips.class));
+              Intent it = new Intent(StaticVariables.SEARCHMESSAGE);
                 it.putExtra(StaticVariables.JSONSTRING,Details.jsonString);
-                context.startActivity(it);
-
-                */
+                it.putExtra("type","startMyRidesDetails");
+                context.sendBroadcast(it);
             }
         });
 
@@ -144,9 +157,8 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
               {
                   UserFunctions functions = new UserFunctions(context);
 
-                  String jsonString = Details.getJsonString();
-                  JSONObject json = new JSONObject(jsonString);
-                  JSONObject driver = functions.getJsonObject(json, StaticVariables.DRIVER);
+                  RideObject obj = new RideObject(Details.jsonString,functions);
+                  JSONObject driver =obj.Driver;
                   functions.showUserProfileDialog();
               }catch (Exception ex)
               {
@@ -156,17 +168,28 @@ public class SearchBookedContent extends RecyclerView.ViewHolder {
         });
 
 
-        rlViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rpViewAll.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
-                    @Override
-                    public void onComplete(RippleView rippleView) {
-                        //start all the booked ride activities
-                    }
-                });
-            }
-        });
+        if(rlViewAll!= null)
+        {
+
+
+            rlViewAll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    rpViewAll.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+                        @Override
+                        public void onComplete(RippleView rippleView) {
+                            //start all the booked ride activities
+                         Intent it = new Intent(StaticVariables.SEARCHMESSAGE);
+                            it.putExtra("type","rideViewAll");
+                            context.sendBroadcast(it);
+                        }
+                    });
+                }
+            });
+
+        }
+
+
 
         String url = StaticVariables.CLOUDORDINARYURL+"w_100,h_100/"+Details.driversProfileUrl+".jpg";
         AQuery aq = new AQuery(context);

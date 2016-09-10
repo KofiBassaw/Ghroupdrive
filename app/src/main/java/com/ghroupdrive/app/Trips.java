@@ -158,7 +158,7 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
                 it.putExtra("point","start");
                 sendBroadcast(it);
 
-
+                closePanel();
                 break;
             case R.id.rlPoint1:
                 //mid point clicked 1
@@ -167,7 +167,7 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
                 it1.putExtra("type","select");
                 it1.putExtra("point","point1");
                 sendBroadcast(it1);
-
+                closePanel();
                 break;
 
             case R.id.rlPoint2:
@@ -177,7 +177,7 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
                 it2.putExtra("type","select");
                 it2.putExtra("point","point2");
                 sendBroadcast(it2);
-
+                closePanel();
                 break;
             case R.id.rlEndPoint:
                 //end point clicked
@@ -186,6 +186,7 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
                 it3.putExtra("type","select");
                 it3.putExtra("point","end");
                 sendBroadcast(it3);
+                closePanel();
                 break;
 
 
@@ -233,6 +234,12 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+
+    private void closePanel()
+    {
+        mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+
+    }
 
     @Override
     protected void onResume() {
@@ -371,6 +378,7 @@ public class Trips extends AppCompatActivity implements View.OnClickListener {
                                         Intent it = new Intent(Trips.this,RiderJoinActivity.class);
                                         it.putExtra(StaticVariables.JSONSTRING,jsonSTring);
                                         it.putExtra(StaticVariables.SEAT,selectedLoc.Name);
+                                        it.putExtra("from","trip");
                                         startActivityForResult(it, JOIN);
                                     }else {
                                         functions.showMessage(message);

@@ -3,6 +3,7 @@ package com.ghroupdrive.app;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -38,9 +39,11 @@ public class PostedRideDetails extends AppCompatActivity {
     int status = 0;
     TextView tvSetOff;
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         setContentView(R.layout.posted_ride_details);
         functions = new UserFunctions(this);
         profiles[0] = (ImageView) findViewById(R.id.ivProfile1);
@@ -48,9 +51,9 @@ public class PostedRideDetails extends AppCompatActivity {
         profiles[2] = (ImageView) findViewById(R.id.ivProfile3);
         profiles[3] = (ImageView) findViewById(R.id.ivProfile4);
         tvStartingPost = (TextView) findViewById(R.id.tvStarting);
-        tvEndingPost = (TextView) findViewById(R.id.tvEnding);
-        tvMid1Post = (TextView) findViewById(R.id.tvMid1);
-        tvMid2Post = (TextView) findViewById(R.id.tvMid2);
+        tvEndingPost = (TextView) findViewById(R.id.tvEndPoint);
+        tvMid1Post = (TextView) findViewById(R.id.tvPoint1);
+        tvMid2Post = (TextView) findViewById(R.id.tvPoint2);
         tvTime = (TextView) findViewById(R.id.tvTime);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
         tvSetOff = (TextView) findViewById(R.id.tvSetOff);
@@ -86,7 +89,6 @@ public class PostedRideDetails extends AppCompatActivity {
                 });
             }
         });
-
     }
 
 

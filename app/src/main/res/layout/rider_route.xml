@@ -235,7 +235,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     card_view:cardCornerRadius="5dp"
-                    android:id="@+id/cvLayout"
+                    android:id="@+id/cvLayout2"
                     card_view:cardUseCompatPadding="true"
                     card_view:cardPreventCornerOverlap="true"
                     card_view:cardElevation="5dp"
@@ -360,6 +360,7 @@
         android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
+
     <com.andexert.library.RippleView
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

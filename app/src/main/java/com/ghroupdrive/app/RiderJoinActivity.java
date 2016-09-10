@@ -1,6 +1,8 @@
 package com.ghroupdrive.app;
 
+import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -11,7 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.andexert.library.RippleView;
 import com.androidquery.AQuery;
 import com.androidquery.callback.ImageOptions;
 
@@ -38,12 +43,23 @@ public class RiderJoinActivity extends AppCompatActivity implements AppBarLayout
     String jsonString;
     RideObject rb;
     UserFunctions functions;
+    ImageView ivChecked;
+    String from;
+    TextView tvSeated;
+    RelativeLayout rlSeated;
+    RippleView rpSeated;
+
+    private  static  final  int PASSENGERS = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rider_join_screen);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         ivProfile = (ImageView) findViewById(R.id.ivProfile);
+         ivChecked = (ImageView) findViewById(R.id.ivChecked);
+        tvSeated = (TextView) findViewById(R.id.tvSeated);
+        rlSeated = (RelativeLayout) findViewById(R.id.rlSeated);
+        rpSeated = (RippleView) findViewById(R.id.rpSeated);
 
         CollapsingToolbarLayout collapsingToolbarLayout =
                 (CollapsingToolbarLayout) findViewById(R.id.main_collapsing);
@@ -51,6 +67,7 @@ public class RiderJoinActivity extends AppCompatActivity implements AppBarLayout
         collapsingToolbarLayout.setTitle("");
         initToolbar();
         initRecyclerView();
+        from = getIntent().getStringExtra("from");
 
         appbarLayout = (AppBarLayout) findViewById(R.id.main_appbar);
 
@@ -71,10 +88,34 @@ public class RiderJoinActivity extends AppCompatActivity implements AppBarLayout
         aq.id(ivProfile).image(url, op);
 
 
+        if(from.contentEquals("trip"))
+        {
+            tvSeated.setText("OK");
+            rlSeated.setBackgroundColor(Color.parseColor("#2d9cf5"));
+
+        }else
+        {
+            rlSeated.setBackgroundColor(Color.parseColor("#f83563"));
+            ivChecked.setVisibility(View.GONE);
+        }
 
 
         bindData();
 
+
+
+        rlSeated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rpSeated.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+                    @Override
+                    public void onComplete(RippleView rippleView) {
+
+                        onBackPressed();
+                    }
+                });
+            }
+        });
 
     }
 
@@ -196,7 +237,13 @@ public class RiderJoinActivity extends AppCompatActivity implements AppBarLayout
            Details.setTime(rb.SetOffTime);
            Details.setName(po.Fullname);
            Details.setPhone(po.MobileNo);
+
+           if(from.contentEquals("trip"))
            Details.setLocName(getIntent().getStringExtra(StaticVariables.SEAT));
+           else
+               Details.setLocName(getLocName());
+
+
            details.add(Details);
 
 
@@ -227,5 +274,50 @@ public class RiderJoinActivity extends AppCompatActivity implements AppBarLayout
        {
            ex.printStackTrace();
        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PASSENGERS && resultCode == RESULT_OK)
+        {
+            onBackPressed();
+        }
+    }
+
+    private String getLocName()
+    {
+        String loc = "";
+
+        try
+        {
+
+            JSONArray passengers = rb.Passengers;
+            for(int i=0; i<passengers.length(); i++)
+            {
+                JSONObject c = passengers.getJSONObject(i);
+                ProfileObject  po = new ProfileObject(c.toString(),functions);
+
+                if(po.AccessCode.contentEquals( functions.getPref(StaticVariables.ACCESSCODE,"")))
+                {
+                    JSONObject locJson =  po.Location;
+                    LocationObj locObj = new LocationObj(locJson.toString(),functions);
+                    loc = locObj.Name;
+
+
+
+                    break;
+                }else
+                {
+                    continue;
+                }
+            }
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        return  loc;
     }
 }

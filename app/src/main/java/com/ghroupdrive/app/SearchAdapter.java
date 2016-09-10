@@ -27,7 +27,7 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_top, parent, false);
             return SearchTop.newInstance(view);
         }else if(viewType == StaticVariables.BOOKTYPE){
-            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_item, parent, false);
+            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.booked_single_item, parent, false);
             return SearchBookedContent.newInstance(view);
         }else if(viewType == StaticVariables.GOTIT){
             final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gotit_root, parent, false);

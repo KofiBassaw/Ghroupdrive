@@ -43,6 +43,7 @@
 
 
 <ImageView
+    android:id="@+id/ivChecked"
     android:layout_width="100dp"
     android:layout_height="100dp"
     android:layout_centerInParent="true"
@@ -65,15 +66,59 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:background="#dbdfe8"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#dbdfe8"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:background="#dbdfe8"
+            android:layout_above="@+id/rpSeated"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <com.andexert.library.RippleView
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:rv_color="@android:color/white"
+            card_view:rv_centered="true"
+            card_view:rv_rippleDuration="200"
+            android:id="@+id/rpSeated">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/rlSeated"
+                android:background="@color/colorPrimary">
+
+
+
+                <TextView
+                    android:id="@+id/tvSeated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I'M SETTING OFF NOW"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"/>
+
+
+
+
+
+
+            </RelativeLayout>
+
+        </com.andexert.library.RippleView>
+    </RelativeLayout>
+
 
 
 

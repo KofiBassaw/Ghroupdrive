@@ -31,10 +31,16 @@ public class GettersAndSetters {
     String time;
     String locName;
     String serverID;
+    int status;
 
 
+    public int getStatus() {
+        return status;
+    }
 
-
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getServerID() {
         return serverID;

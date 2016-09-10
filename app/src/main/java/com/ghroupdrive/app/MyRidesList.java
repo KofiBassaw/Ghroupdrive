@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,31 +26,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 /**
- * Created by ptrack on 9/1/16.
+ * Created by ptrack on 9/2/16.
  */
-public class PostedRideList extends AppCompatActivity {
+public class MyRidesList extends AppCompatActivity {
 
 
-    private static final int POSTEDDETAILS = 1;
+    private static final int MYRIDESDETAILS = 1;
     boolean setResultOk = false;
     UserFunctions functions;
     ArrayList<GettersAndSetters> details;
     ProgressBar pbBar;
     Button bReload;
     TextView tvRides;
-    PostedRidesAdapter recyclerAdapter;
+    MyRidesAdapter recyclerAdapter;
     RecyclerView recyclerView;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.posted_rides_list);
+
         initToolbar();
         functions = new UserFunctions(this);
         pbBar = (ProgressBar) findViewById(R.id.pbBar);
@@ -78,11 +76,11 @@ public class PostedRideList extends AppCompatActivity {
             public void onClick(View v) {
                 bReload.setVisibility(View.GONE);
                 pbBar.setVisibility(View.VISIBLE);
-                getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"1");
+                getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"2");
             }
         });
-    }
 
+    }
 
 
 
@@ -130,16 +128,18 @@ public class PostedRideList extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == POSTEDDETAILS && resultCode == RESULT_OK)
+        if(requestCode == MYRIDESDETAILS && resultCode == RESULT_OK)
         {
             setResultOk = true;
             pbBar.setVisibility(View.VISIBLE);
-            getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"1");
+            getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"2");
             details = new ArrayList<>();
-            recyclerAdapter = new PostedRidesAdapter(details, PostedRideList.this);
+            recyclerAdapter = new MyRidesAdapter(details, MyRidesList.this);
             recyclerView.setAdapter(recyclerAdapter);
         }
     }
+
+
 
 
     @Override
@@ -151,17 +151,19 @@ public class PostedRideList extends AppCompatActivity {
 
     private void initToolbar()
     {
-      Toolbar  toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
 
+
+
     @Override
     protected void onDestroy() {
         try {
-           unregisterReceiver(mHandleMessageReceiver);
+            unregisterReceiver(mHandleMessageReceiver);
         } catch (Exception e) {
             Log.e("rror", "> " + e.getMessage());
         }
@@ -172,12 +174,9 @@ public class PostedRideList extends AppCompatActivity {
     @Override
     protected void onResume() {
         registerReceiver(mHandleMessageReceiver, new IntentFilter(
-                StaticVariables.STARTACTIVITYINTENT));
+                StaticVariables.SEARCHMESSAGE));
         super.onResume();
     }
-
-
-
 
 
 
@@ -189,30 +188,19 @@ public class PostedRideList extends AppCompatActivity {
 
             String type = intent.getStringExtra("type");
 
-            if (type.contentEquals("postedActivity"))
+            if (type.contentEquals("startMyRidesDetails"))
             {
-                String jsonSTring = intent.getStringExtra(StaticVariables.JSONSTRING);
-
-                RideObject rd = new RideObject(jsonSTring,functions);
-
-                if(rd.Status == 0)
-                {
-                    Intent it = new Intent(PostedRideList.this, PostedRideDetails.class);
-                    it.putExtra(StaticVariables.JSONSTRING,intent.getStringExtra(StaticVariables.JSONSTRING));
-                    startActivityForResult(it,POSTEDDETAILS);
-                }else if(rd.Status == 1)
-                {
-                    Intent it = new Intent(PostedRideList.this, PassengerListActivity.class);
-                    it.putExtra(StaticVariables.JSONSTRING,intent.getStringExtra(StaticVariables.JSONSTRING));
-                    startActivityForResult(it,POSTEDDETAILS);
-                }
-
+                Intent it = new Intent(MyRidesList.this, RiderJoinActivity.class);
+                it.putExtra(StaticVariables.JSONSTRING,intent.getStringExtra(StaticVariables.JSONSTRING));
+                it.putExtra("from","myride");
+                startActivityForResult(it,MYRIDESDETAILS);
 
             }
 
 
         }
     };
+
 
 
 
@@ -244,7 +232,7 @@ public class PostedRideList extends AppCompatActivity {
 
 
                                         if (data != null) {
-                                                StaticVariables.POSTEDRIDES = data.toString();
+                                            StaticVariables.MYLOC = data.toString();
 
 
                                             if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.HONEYCOMB)
@@ -290,37 +278,6 @@ public class PostedRideList extends AppCompatActivity {
 
 
 
-
-    private void bindData()
-    {
-        details = new ArrayList<>();
-
-
-        try
-        {
-
-            JSONArray rides = new JSONArray(StaticVariables.POSTEDRIDES);
-            GettersAndSetters Details;
-
-            for(int i=0; i<rides.length(); i++)
-            {
-                JSONObject one = rides.getJSONObject(i);
-                 Details = new GettersAndSetters();
-                Details.setJsonString(one.toString());
-
-                details.add(Details);
-
-
-            }
-
-
-        }catch (Exception ex)
-        {
-           ex.printStackTrace();
-        }
-
-    }
-
     class BindDataAsync extends AsyncTask<String, String, String> {
 
         /**
@@ -351,7 +308,7 @@ public class PostedRideList extends AppCompatActivity {
         @Override
         protected void onPostExecute(String file_url) {
             pbBar.setVisibility(View.GONE);
-            recyclerAdapter = new PostedRidesAdapter(details, PostedRideList.this);
+            recyclerAdapter = new MyRidesAdapter(details, MyRidesList.this);
             recyclerView.setAdapter(recyclerAdapter);
             if(details.size()>0)
             {
@@ -376,6 +333,107 @@ public class PostedRideList extends AppCompatActivity {
         pbBar.setVisibility(View.GONE);
     }
 
+
+
+
+
+    private void bindData()
+    {
+        details = new ArrayList<>();
+
+
+        try
+        {
+
+            JSONArray rides = new JSONArray(StaticVariables.MYLOC);
+            GettersAndSetters Details;
+
+            for(int i=0; i<rides.length(); i++)
+            {
+                JSONObject one = rides.getJSONObject(i);
+                RideObject rb = new RideObject(one.toString(),functions);
+                Details = new GettersAndSetters();
+                Details.setType(StaticVariables.BOOKTYPE);
+
+
+                if(functions.getPref(rb.RideId,0) != 0)
+                {
+                    Details.setSeatNo("SEAT "+functions.getPref(rb.RideId,0));
+                }else
+                {
+                    JSONArray passengers = rb.Passengers;
+
+                    for(int a=0; a<passengers.length(); a++)
+                    {
+                        JSONObject onePass = passengers.getJSONObject(a);
+                        ProfileObject po = new ProfileObject(onePass.toString(),functions);
+
+                        if(po.AccessCode == functions.getPref(StaticVariables.ACCESSCODE,""))
+                        {
+                            Details.setSeatNo("SEAT "+po.Seat);
+
+                            break;
+                        }else
+                        {
+                            continue;
+                        }
+
+                    }
+                }
+
+
+
+
+
+                ProfileObject driver = new ProfileObject(rb.Driver.toString(),functions);
+                Details.setDriversProfileUrl(driver.ProfileUrl);
+                Details.setName(driver.Fullname);
+
+
+
+
+
+                if(rb.RideStart !=null)
+                {
+                    Details.setStartingPoint(functions.getJsonString(rb.RideStart, StaticVariables.NAME));
+                }
+
+                if(rb.RideEnd != null)
+                {
+                    Details.setEndingPoint(functions.getJsonString(rb.RideEnd, StaticVariables.NAME));
+                }
+
+
+
+                if(rb.Stop1 != null)
+                {
+                    Details.setPoint1(functions.getJsonString(rb.Stop1, StaticVariables.NAME));
+                }else{
+                    Details.setPoint1("");
+                }
+
+
+                if(rb.Stop2 != null)
+                {
+                    Details.setPoint2(functions.getJsonString(rb.Stop2, StaticVariables.NAME));
+                }else{
+                    Details.setPoint2("");
+                }
+
+                Details.setJsonString(one.toString());
+                Details.setStatus(rb.Status);
+                details.add(Details);
+
+
+            }
+
+
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+    }
 
 
 }

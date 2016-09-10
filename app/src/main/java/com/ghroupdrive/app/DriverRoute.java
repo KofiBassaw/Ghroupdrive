@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -67,6 +69,7 @@ public class DriverRoute extends Fragment {
     LinearLayout llContainer;
     RelativeLayout rlGotIt;
     CardView cvLayout;
+    CardView cvLayout2;
     RippleView rpGotIt;
     LinearLayout llMyRides;
     ImageView profiles[] = new ImageView[4];
@@ -107,6 +110,7 @@ public class DriverRoute extends Fragment {
         ivBottomPoint = (ImageView) theLayout.findViewById(R.id.ivBottomPoint);
         llContainer = (LinearLayout) theLayout.findViewById(R.id.llContainer);
         cvLayout = (CardView) theLayout.findViewById(R.id.cvLayout);
+        cvLayout2 = (CardView) theLayout.findViewById(R.id.cvLayout2);
         rlGotIt = (RelativeLayout) theLayout.findViewById(R.id.rlGotIt);
         rpGotIt = (RippleView) theLayout.findViewById(R.id.rpGotIt);
         llMyRides = (LinearLayout) theLayout.findViewById(R.id.llMyRides);
@@ -148,7 +152,7 @@ public class DriverRoute extends Fragment {
 
         if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
         {
-            cvLayout.setVisibility(View.VISIBLE);
+            cvLayout2.setVisibility(View.VISIBLE);
         }
 
 
@@ -180,18 +184,18 @@ public class DriverRoute extends Fragment {
                     {
                         if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
                         {
-                            cvLayout.setVisibility(View.VISIBLE);
+                            cvLayout2.setVisibility(View.VISIBLE);
                         }
                         //hide the card
                         //hide the box
                         llContainer.setVisibility(View.GONE);
                     }else
                     {
-                        cvLayout.setVisibility(View.GONE);
+                        cvLayout2.setVisibility(View.GONE);
                     }
                 }else
                 {
-                    cvLayout.setVisibility(View.GONE);
+                    cvLayout2.setVisibility(View.GONE);
                 }
             }
         });
@@ -223,7 +227,7 @@ public class DriverRoute extends Fragment {
                     {
                         if(!functions.getPref(StaticVariables.HASGOTITROUT,false))
                         {
-                            cvLayout.setVisibility(View.VISIBLE);
+                            cvLayout2.setVisibility(View.VISIBLE);
                         }
                         //show the card
                         //hide the box
@@ -231,12 +235,12 @@ public class DriverRoute extends Fragment {
                     }else
                     {
 
-                            cvLayout.setVisibility(View.GONE);
+                            cvLayout2.setVisibility(View.GONE);
 
                     }
                 }else
                 {
-                    cvLayout.setVisibility(View.GONE);
+                    cvLayout2.setVisibility(View.GONE);
                 }
             }
         });
@@ -327,7 +331,7 @@ public class DriverRoute extends Fragment {
                     @Override
                     public void onComplete(RippleView rippleView) {
                         functions.setPref(StaticVariables.HASGOTITROUT,true);
-                        cvLayout.setVisibility(View.GONE);
+                        cvLayout2.setVisibility(View.GONE);
                     }
                 });
             }
@@ -355,7 +359,7 @@ public class DriverRoute extends Fragment {
 
                final JSONObject oneJson = rides.getJSONObject(0);
 
-                RideObject rb = new RideObject(oneJson.toString(),functions);
+               final  RideObject rb = new RideObject(oneJson.toString(),functions);
 
                 tvTime.setText(rb.SetOffTime);
 
@@ -420,9 +424,23 @@ public class DriverRoute extends Fragment {
                 cvLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent it = new Intent(getActivity(), PostedRideDetails.class);
-                        it.putExtra(StaticVariables.JSONSTRING,oneJson.toString());
-                        startActivityForResult(it,POSTEDDETAILS);
+
+                        if(rb.Status == 0)
+                        {
+                            Intent it = new Intent(getActivity(), PostedRideDetails.class);
+                            it.putExtra(StaticVariables.JSONSTRING,oneJson.toString());
+                            startActivityForResult(it,POSTEDDETAILS);
+                        }else if(rb.Status == 1)
+                        {
+                            Intent it = new Intent(getActivity(), PassengerListActivity.class);
+                            it.putExtra(StaticVariables.JSONSTRING,oneJson.toString());
+                            startActivityForResult(it,POSTEDDETAILS);
+
+                        }
+
+
+
+
                     }
                 });
 
@@ -543,6 +561,30 @@ public class DriverRoute extends Fragment {
         }else if(resultCode ==  getActivity().RESULT_OK && requestCode == POSTEDDETAILS)
         {
             //lfhgvjkahegrdjakjerrfgjbfhsk
+            autocompleteView.setText("");
+            autocompleteView1.setText("");
+            starting = "";
+            fromLocId = "";
+
+            destination =  "";
+            toLocId =  "";
+            hideLast(false);
+            tvDestination.setText("");
+            ivBottom.setVisibility(View.GONE);
+            ivBottomPoint.setVisibility(View.GONE);
+            ivLine.setVisibility(View.GONE);
+
+
+            tvStarting.setText("");
+            ivTop.setVisibility(View.GONE);
+            ivTopPoint.setVisibility(View.GONE);
+            ivLine.setVisibility(View.GONE);
+
+            hideFirst(false);
+
+
+            getMyRides(functions.getPref(StaticVariables.ACCESSCODE,""),"1");
+
 
         }else if(resultCode ==  getActivity().RESULT_OK && requestCode == POSTEDDETAILS2)
         {
@@ -707,4 +749,75 @@ private void getInBetween()
         super.onDestroy();
     }
 
+
+
+
+
+
+
+    private void getMyRides(String accessCode, final String type)
+    {
+
+        ConnectionDetector cd=new ConnectionDetector(getActivity());
+        if(cd.isConnectingToInternet()){
+            //System.out.println(functions.getCokies());
+            Ion.with(this)
+                    .load("GET", StaticVariables.BASEURL + "UserRides?"+StaticVariables.ACCESSCODE+"="+accessCode+"&Type="+type)
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                        @Override
+                        public void onCompleted(Exception e, String result) {
+                            try {
+                                if (e != null) {
+                                    e.printStackTrace();
+                                    //System.out.println("---------------------------------- error");
+                                }
+
+                                System.out.println("bbbbbbbbbbbbbbbb: "+    result);
+                                if (result != null) {
+                                    JSONObject json = new JSONObject(result);
+                                    int code = json.getInt(StaticVariables.CODE);
+                                    String message = functions.getJsonString(json, StaticVariables.MESSAGE);
+                                    if (code == 200) {
+                                        JSONArray data = functions.getJsonArray(json, StaticVariables.DATA);
+
+
+                                        if (data != null) {
+                                            StaticVariables.POSTEDRIDES = data.toString();
+
+
+
+                                        }else
+                                        {
+                                           // showRelod();
+                                        }
+
+                                    }else
+                                    {
+                                        //showRelod();
+
+                                    }
+
+
+                                }else
+                                {
+                                    //showRelod();
+                                }
+
+                            } catch (Exception ex) {
+                                //showRelod();
+                                ex.printStackTrace();
+                            }
+                        }
+                    });
+
+
+        }else
+        {
+            //showRelod();
+        }
+
+
+
+    }
 }

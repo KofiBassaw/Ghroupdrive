@@ -58,6 +58,8 @@ public class RiderSearchFragement extends Fragment {
     String fromLocId;
     String toLocId;
     String idS = "";
+    private static final int RIDEVIEWALL = 1;
+    private static final int MYRIDESDETAILS = 2;
 
 
     @Override
@@ -241,6 +243,7 @@ public class RiderSearchFragement extends Fragment {
 
 
 
+        System.out.print(StaticVariables.BASEURL + url);
 
         ConnectionDetector cd=new ConnectionDetector(getActivity());
         if(cd.isConnectingToInternet()){
@@ -295,6 +298,7 @@ public class RiderSearchFragement extends Fragment {
 
                             } catch (Exception ex) {
                                 ex.printStackTrace();
+                                errorOccure();
                             }
                         }
                     });
@@ -400,6 +404,17 @@ public class RiderSearchFragement extends Fragment {
                 functions.setPref(StaticVariables.HASGOTITSEARCH,true);
                 details.remove(0);
                 recyclerAdapter.notifyItemRemoved(0);
+            }else if(type.contentEquals("rideViewAll"))
+            {
+              Intent it = new Intent(getActivity(),MyRidesList.class);
+                startActivityForResult(it,RIDEVIEWALL);
+            } if (type.contentEquals("startMyRidesDetails"))
+            {
+                Intent it = new Intent(getActivity(), RiderJoinActivity.class);
+                it.putExtra(StaticVariables.JSONSTRING,intent.getStringExtra(StaticVariables.JSONSTRING));
+                it.putExtra("from","myride");
+                startActivityForResult(it,MYRIDESDETAILS);
+
             }
 
 
@@ -407,6 +422,18 @@ public class RiderSearchFragement extends Fragment {
     };
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == MYRIDESDETAILS && resultCode == getActivity().RESULT_OK)
+        {
+            //hgdfvbgtdjfkdfkdfk
+
+        }else if(requestCode == RIDEVIEWALL && resultCode == getActivity().RESULT_OK)
+        {
+           //fgbdbdbfdbfdn
+        }
+    }
 
     @Override
     public void onResume() {
